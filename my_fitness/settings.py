@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
-
     # Optional -- requires install using `django-allauth[socialaccount]`.
     'allauth.socialaccount',
     # ... include the providers you want to enable:
