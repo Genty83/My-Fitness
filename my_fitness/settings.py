@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-genty83-myfitness-omkecuiyjif.ws.codeinstitute-ide.net']
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-genty83-myfitness-omkecuiyjif.ws.codeinstitute-ide.net']
+
 
 # Application definition
 
