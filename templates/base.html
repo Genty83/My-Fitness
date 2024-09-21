@@ -9,14 +9,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   {% endblock %}
   <title>My Fitness {% block extra_title %}{% endblock %}</title>
+  <!-- Link Tags -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-  {% block corecss %}
+  <!-- Script Tags -->
+  <script src="{% static 'js/main.js' %}"></script>
 
-  {% endblock %}
-
-  {% block corejs %}
-
-  {% endblock %}
 </head>
 <body>
   <!-- Add messages container -->
@@ -24,8 +22,192 @@
     <div class="messages-container"></div>
   {% endif %}
 
+  <!-- Hero Bg Container -->
+  <div class="hero-bg-container flex-col"></div>
+  <!-- End of Hero Bg Container -->
 
-  {% block content %}
-  {% endblock %}
+  <!-- Header Container -->
+  <header class="header-container flex-row items-center content-between sticky-header">
+    <!-- Logo wrapper -->
+    <div class="logo-wrapper">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-dumbbell"></i>
+        My Fitness
+      </a>
+    </div>
+    <!-- End of Logo wrapper -->
+    
+    <!-- Nav Wrapper -->
+    <div class="nav-wrapper">
+      <!-- Nav -->
+      <nav class="nav">
+        <ul class="flex-row gap-md">
+
+          <li class="nav-link">
+            <a href="#">Home</a>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">Men's</a>
+            <div class="nav-menu">
+              <div class="flex-row-wrap pad-xl gap-xl">
+                <div class="flex-col gap-sm items-start">
+                  <h5>Trending</h5>
+                  <a href="#">New Products</a>
+                  <a href="#">Best Sellers</a>
+                  <a href="#">Seasonal</a>
+              </div>
+              <div class="flex-col gap-sm items-start">
+                <h5>Clothing</h5>
+                <a href="#">All Products</a>
+                <a href="#">T-Shirts & Tops</a>
+                <a href="#">Shorts</a>
+                <a href="#">Joggers</a>
+                <a href="#">Shorts</a>
+              </div>
+              <div class="flex-col gap-sm items-start">
+                <h5>Accessories</h5>
+                <a href="#">All Products</a>
+                <a href="#">Hats</a>
+                <a href="#">Bags</a>
+                <a href="#">Gloves</a>
+                <a href="#">Socks</a>
+            </div>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">Women's</a>
+            <div class="nav-menu">
+              
+            </div>
+          </li>
+
+          <li class="nav-link">
+            <a href="#">Accessories</a>
+            <div class="nav-menu">
+
+            </div>
+          </li>
+        </ul>
+
+      </nav>
+      <!-- End of Nav -->
+    </div>
+    <!-- End of Nav Wrapper -->
+
+    <!-- Icon Buttons Wrapper -->
+    <div class="icon-buttons-wrapper flex-row gap-sm">
+      <a href="#" class="btn-icon" title="Wishlist">
+        <i class="fa-regular fa-heart"></i>
+      </a>
+      <a href="#" class="btn-icon" title="Account">
+        <i class="fa-regular fa-user"></i>
+      </a>
+      <a href="#" class="btn-icon" title="Checkout">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </a>
+    </div>
+    <!-- End of Icon Buttons Wrapper -->
+  </header>
+  <!-- End of Header -->
+
+  <!-- Hero Container -->
+  <section class="hero-container">
+    <!-- Hero Content -->
+    <div class="hero-content flex-col gap-lg content-center">
+      <h1>
+        Welcome To <br>
+        My Fitness
+      </h1>
+      <p class="text-white">
+        Welcome to My Fitness, your number one source for all things fitness. <br>
+        We're dedicated to providing you the very best of fitness products, <br>
+        with an emphasis on quality, customer service and uniqueness. <br>
+        Combining a passion for fitness and a commitment to helping others, <br>
+        My Fitness is dedicated to building a healthier you!
+
+      </p>
+      <div class="hero-btn-wrapper flex-row-wrap gap-md">
+        <button class="btn btn-primary btn-lg">Shop Men <i class="fa-solid fa-arrow-right"></i></button>
+        <button class="btn btn-secondary btn-lg">Shop Women <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <form class="subscribe-form flex-row" action="" method="post">
+        <input type="email" name="email" id="email" placeholder="Enter your email">
+        <button class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+    <!-- End of Hero Content -->
+  </section>
+  <!-- End of Hero Container -->
+
+  <!-- Main Content -->
+  <main>
+    
+    <!-- Content Container -->
+    <div class="content-container">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <!-- End of content Container -->
+
+  </main>
+  <!-- End of Main Content -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container flex-col content-end">
+      <div class="footer-top flex-col items-center content-center gap-md pad-sm flex-grow-1">
+        <p>
+          Sign up todate and receive 10% off your first order!
+        </p>
+        <button class="btn btn-xl btn-primary shadow-3" type="button">
+          Learn More
+        </button>
+      </div>
+      <div class="footer-content flex-row-wrap gap-lg content-center pad-lg">
+        <div class="footer-content-left grid gap-sm flex-basis-200 content-center">
+          <h5>Company</h5>
+          <div class="horiz-seperator"></div>
+          <a href="#">About</a>
+          <a href="#">Help</a>
+          <a href="#">Press</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-content-center grid gap-sm flex-basis-200 content-center">
+          <h5>Services</h5>
+          <div class="horiz-seperator"></div>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-content-right grid gap-sm flex-basis-200 content-center">
+          <h5>Support</h5>
+          <div class="horiz-seperator"></div>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Blog</a>
+        </div>
+      </div>
+      <div class="footer-bottom flex-col gap-xxs items-center pad-sm text-center">
+        <div class="footer-bottom-left">
+          <p>&copy; 2024 My Fitness. All rights reserved.</p>
+        </div>
+        <div class="footer-bottom-right">
+          <div class="footer-bottom-right-icons flex-row gap-xs">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End of Footer -->
+
+
+  
 </body>
 </html>
