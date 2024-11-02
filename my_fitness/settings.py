@@ -20,6 +20,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["8000-genty83-myfitness-y0n06gwpb2f.ws.codeinstitute-ide.net"]
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-genty83-myfitness-y0n06gwpb2f.ws.codeinstitute-ide.net']
+
 
 # Application definition
 
@@ -35,7 +37,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'home'
+    'home',
+    'products'
 ]
 
 MIDDLEWARE = [
