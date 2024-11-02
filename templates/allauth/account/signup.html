@@ -4,11 +4,12 @@
     {% trans "Signup" %}
 {% endblock head_title %}
 {% block content %}
+<div class="container width-50 height-100 breakpoint-lg margin-auto pad-3">
     {% element h1 %}
         {% trans "Sign Up" %}
     {% endelement %}
     {% setvar link %}
-        <a href="{{ login_url }}">
+        <a class="ft-sky-400 transition-medium ft-sky-hover-500" href="{{ login_url }}">
         {% endsetvar %}
         {% setvar end_link %}
         </a>
@@ -43,3 +44,4 @@
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
 {% endblock content %}
+</div>

@@ -4,6 +4,7 @@
 {% block head_title %}
     {% trans "Verify Your Email Address" %}
 {% endblock head_title %}
+<div class="container width-50 height-100 breakpoint-lg margin-auto pad-3">
 {% block content %}
     {% element h1 %}
         {% trans "Verify Your Email Address" %}
@@ -23,3 +24,4 @@ contact us if you do not receive it within a few minutes.{% endblocktrans %}
         {% blocktrans %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your email address</a>.{% endblocktrans %}
     {% endelement %}
 {% endblock content %}
+</div>

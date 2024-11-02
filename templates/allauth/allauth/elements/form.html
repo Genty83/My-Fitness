@@ -1,5 +1,5 @@
 {% load allauth %}
-<form method="{{ attrs.method }}" action="{{ attrs.action }}">
+<form class="allauth-form grid gap-2 pad-2 bd-radius-2" method="{{ attrs.method }}" action="{{ attrs.action }}">
     {% slot body %}
     {% endslot %}
     {% slot actions %}
