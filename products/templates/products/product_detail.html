@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>My Fitnes - {{ product.name }}</title>
+{% endblock %}
+
+{% block content %}
+<div class="container width-70 breakpoint-lg margin-auto pad-3">
+  <div class="flex-row align-center justify-between margin-block-2">
+    <a href="{% url 'all_products' %}" class="btn btn-md bd-radius-2 bg-sky-400 ft-black ft-weight-500">
+      Back To Products
+    </a>
+  </div>
+  <hr>
+
+  <div class="row pad-2">
+    <div class="col-span-6 breakpoint-lg">
+      <div class="img-container width-100 height-100 flex-row justify-center">
+        {% if product.image == "" %}
+        <img src="{{ product.image_url }}" class="img-lg" alt="{{ product.name }}">
+        {% else %}
+        <img src="{{ product.image }}" class="img-lg" alt="{{ product.name }}">
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-span-6 breakpoint-lg flex-col gap-2">
+      <p class="ft-primary-1">{{ product.sku }}</p>
+      <h2>{{ product.name }}</h2>
+      <hr>
+      <p>{{ product.description }}</p>
+      <p class="ft-weightt-700">Price: £{{ product.price }}</p>
+      <form class="flex-row gap-1" action="#" method="post">
+        {% csrf_token %}
+        <input 
+          class="bg-slate-600 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
+          type="number" name="quantity" value="1" min="1">
+        <button type="submit" class="btn bg-sky-400 bd-radius-2 ft-black bd-width-0 btn-md">Add to cart</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container width-70 breakpoint-lg margin-auto pad-3">
+  <h2>Related Products</h2>
+  <div class="grid tracks-fixed tracks-2 track-size-250 gap-3 pad-2 justify-center">
+    {% for related_product in related_products %}
+      <div class="bg-slate-600 pad-1 bd-radius-2 height-100">
+        <div class="img-container flex-row justify-center">
+          {% if related_product.image == "" %}
+          <img src="{{ related_product.image_url }}" class="img-md" alt="{{ related_product.name }}">
+          {% else %}
+          <img src="{{ related_product.image }}" class="img-md" alt="{{ related_product.name }}">
+          {% endif %}
+        </div>
+        <div class="flex-col justify-between gap-2">
+          <p class="ft-sky-400">{{ related_product.sku }}</p>
+          <h6>{{ related_product.name }}</h6>
+          <p class="ft-weightt-700">Price: £{{ related_product.price }}</p>
+          <a href="{% url 'product_detail' related_product.id %}" 
+            class="btn btn-md bd-radius-2 bg-sky-400 ft-black ft-weight-500 width-100">
+            View Product
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}
