@@ -23,18 +23,22 @@
   <link rel="stylesheet" href="{% static 'css/layouts.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'css/colors/slate.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'css/colors/sky.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
   {% endblock %}
 
   {% block js %}
-
+  <script type="module" src="{% static 'js/main.js' %}"></script>
   {% endblock %}
 </head>
 <body class="bg-slate-700 ft-slate-100 ft-serif">
+  <!-- Include mobile nav -->
+  {% include 'includes/nav_menu.html' %}
+
   <!-- Sticky footer container -->
   <div class="sticky-footer">
 
     <!-- Header -->
-    <header class="height-fixed-60">
+    <header class="height-fixed-60 bg-slate-700">
       <div class="container width-80 breakpoint-lg margin-auto">
         <div class="flex-row height-100 align-center justify-between">
           <!-- Left content -->
@@ -118,9 +122,9 @@
     <section class="height-fit-content">
       <div class="content show-breakpoint-0 hide-breakpoint-lg">
         <div class="flex-row-wrap align-center pad-2 gap-2">
-          <a href="#" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2">
-            <i class="fas fa-bars"></i>
-          </a>
+          <button class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0"">
+            <i class="menu-btn fas fa-bars"></i>
+          </button>
           <a href="#" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2">
             <i class="fas fa-search"></i>
           </a>
