@@ -1,0 +1,17 @@
+/*
+This file contains the styling for the allauth form templates
+*/
+
+
+.allauth-form input:not([type=checkbox]) {
+  height: 35px;
+  background-color: #475569;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 0.25rem;
+  transition: all 1s ease;
+}
+.allauth-form input:not([type=checkbox]):focus {
+  box-shadow: 0px 0px 5px 2px #7dd3fc;
+}
