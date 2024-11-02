@@ -29,20 +29,111 @@
 
   {% endblock %}
 </head>
-<body class="bg-slate-700">
+<body class="bg-slate-700 ft-slate-100 ft-serif">
   <!-- Sticky footer container -->
   <div class="sticky-footer">
 
     <!-- Header -->
-    <header>
+    <header class="height-fixed-60">
+      <div class="container width-80 breakpoint-lg margin-auto">
+        <div class="flex-row height-100 align-center justify-between">
+          <!-- Left content -->
+          <div class="flex-row align-center pad-2 height-100 gap-4">
+            <!-- Logo -->
+            <div class="flex-row align-center gap-1">
+              <i class="fas fa-dumbbell ft-size-xl ft-sky-400"></i>
+              <p class="ft-size-xl text-no-wrap">My Fitness</p>
+            </div>
+            <!-- Logo end -->
+    
+            <!-- Search bar -->
+            <div class="content hide-breakpoint-0 show-breakpoint-lg">
+              <form action="">
+                <input 
+                  class="bd-width-0 bg-slate-600 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-400 transition-medium" 
+                  type="text" name="search" id="search" placeholder="Search..."
+                  >
+              </form>
+            </div>
+            <!-- searchbar end -->
+          </div>
+          <!-- Left content end -->
 
+          <!-- Right content -->
+          <div class="content hide-breakpoint-0 show-breakpoint-lg">
+            <div class="flex-row align-center justify-end gap-5">
+              <!-- Nav bar -->
+              <nav>
+                <ul class="flex-row align-center gap-3">
+                  <li class="transition-medium ft-sky-hover-400">
+                    <a href="#">
+                      Home
+                    </a>
+                  </li>
+                  <li class="transition-medium ft-sky-hover-400">
+                    <a href="#">
+                      Shop All Products
+                    </a>
+                  </li>
+                  <li class="transition-medium ft-sky-hover-400">
+                    <a href="#">
+                      Shop Deals
+                    </a>
+                  </li>
+                  <li class="transition-medium ft-sky-hover-400">
+                    <a href="#">
+                      Clearance Items
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- Navbar end -->
+
+              <!-- Button group -->
+              <div class="flex-row align-center gap-2">
+                <a href="#" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2">
+                  <i class="fas fa-user ft-sky-500"></i>
+                  profile
+                </a>
+                <a href="#" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2">
+                  <i class="fas fa-user-plus ft-sky-500"></i>
+                  Login
+                </a>
+                <a href="#" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2">
+                  <i class="fas fa-shopping-cart ft-sky-500"></i>
+                  £0.00
+                </a>
+              </div>
+              <!-- Button group end -->
+            </div>
+          </div>
+          <!-- Right content end -->
+        </div>
+      </div>
     </header>
     <hr>
     <!-- Header end -->
 
     <!-- Breadcrumb -->
-    <section>
-    
+    <section class="height-fit-content">
+      <div class="content show-breakpoint-0 hide-breakpoint-lg">
+        <div class="flex-row-wrap align-center pad-2 gap-2">
+          <a href="#" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2">
+            <i class="fas fa-bars"></i>
+          </a>
+          <a href="#" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2">
+            <i class="fas fa-search"></i>
+          </a>
+          {% block breadcrumb %}
+          <div class="flex-row align-center gap-1">
+            <a href="{% url 'home' %}" class="btn bg-slate-hover-600 transition-medium pad-2 bd-radius-2">
+              Home &gt;
+            </a>
+          </div>
+          {% endblock %}
+        </div>
+      </div>
+      <hr>
     </section>
     <!-- Breadcrumb end -->
 
