@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="{% static 'css/colors/slate.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'css/colors/sky.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/allauth.css' %}" type="text/css">
   {% endblock %}
 
   {% block js %}
@@ -39,31 +40,7 @@
 
     <!-- Header -->
     {% include 'includes/header.html' %}
-    <hr>
     <!-- Header end -->
-
-    <!-- Breadcrumb -->
-    <section class="height-fit-content">
-      <div class="content show-breakpoint-0 hide-breakpoint-lg">
-        <div class="flex-row-wrap align-center pad-2 gap-2">
-          <button class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0"">
-            <i class="menu-btn fas fa-bars"></i>
-          </button>
-          <a href="#" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2">
-            <i class="fas fa-search"></i>
-          </a>
-          {% block breadcrumb %}
-          <div class="flex-row align-center gap-1">
-            <a href="{% url 'home' %}" class="btn bg-slate-hover-600 transition-medium pad-2 bd-radius-2">
-              Home &gt;
-            </a>
-          </div>
-          {% endblock %}
-        </div>
-      </div>
-      <hr>
-    </section>
-    <!-- Breadcrumb end -->
 
     <!-- Main -->
     <main>
