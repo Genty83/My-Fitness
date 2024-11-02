@@ -84,7 +84,7 @@ def product_detail(request, product_id):
         'categories': Category.objects.all(),
         'sub_categories': SubCategory.objects.all(),
         'related_products': related_products,
-        'reviews': ProductReview.objects.filter(product_id=product_id)
+
     }
     return render(request, template, context)
 
