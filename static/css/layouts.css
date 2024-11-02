@@ -104,6 +104,8 @@ Heights
 .view-height-20 { height: 20vh; }
 .view-height-10 { height: 10vh; }
 
+.height-fit-content { height: fit-content;}
+
 /*
 Base Layouts
 ----------------------------------------
