@@ -214,6 +214,13 @@ Text Transform
 .text-normal { text-transform: none; }
 
 /*
+Text Wrapping
+----------------------------------------
+*/
+.text-no-wrap { text-wrap: nowrap; }
+.text-wrap { text-wrap: wrap; }
+
+/*
 Overflow
 ----------------------------------------
 */
