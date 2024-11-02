@@ -1,0 +1,181 @@
+[{
+        "model": "products.subcategory",
+        "pk": 1,
+        "fields": {
+            "name": "treadmills",
+            "friendly_name": "Treadmills",
+            "category_id": 1
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 2,
+        "fields": {
+            "name": "exercise_bikes",
+            "friendly_name": "Exercise Bikes",
+            "category_id": 1
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 3,
+        "fields": {
+            "name": "cross_trainers",
+            "friendly_name": "Cross Trainers",
+            "category_id": 1
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 4,
+        "fields": {
+            "name": "rowing_machines",
+            "friendly_name": "Rowing Machines",
+            "category_id": 1
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 5,
+        "fields": {
+            "name": "weight_benches",
+            "friendly_name": "Weight Benches",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 6,
+        "fields": {
+            "name": "leg_machines",
+            "friendly_name": "Leg Machines",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 7,
+        "fields": {
+            "name": "back_machines",
+            "friendly_name": "Back Machines",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 8,
+        "fields": {
+            "name": "arm_machines",
+            "friendly_name": "Arm Machines",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 9,
+        "fields": {
+            "name": "chest_machines",
+            "friendly_name": "Chest Machines",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 10,
+        "fields": {
+            "name": "mutli_gyms",
+            "friendly_name": "Mutli Gyms",
+            "category_id": 2
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 11,
+        "fields": {
+            "name": "football",
+            "friendly_name": "Football",
+            "category_id": 3
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 12,
+        "fields": {
+            "name": "basketball",
+            "friendly_name": "Basketball",
+            "category_id": 3
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 13,
+        "fields": {
+            "name": "tennis",
+            "friendly_name": "Tennis",
+            "category_id": 3
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 14,
+        "fields": {
+            "name": "golf",
+            "friendly_name": "Golf",
+            "category_id": 3
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 15,
+        "fields": {
+            "name": "cricket",
+            "friendly_name": "Cricket",
+            "category_id": 3
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 16,
+        "fields": {
+            "name": "dumbbells",
+            "friendly_name": "Dumbbells",
+            "category_id": 4
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 17,
+        "fields": {
+            "name": "barbells",
+            "friendly_name": "Barbells",
+            "category_id": 4
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 18,
+        "fields": {
+            "name": "weight_plates",
+            "friendly_name": "Weight Plates",
+            "category_id": 4
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 19,
+        "fields": {
+            "name": "weight_sets",
+            "friendly_name": "Weight Sets",
+            "category_id": 4
+        }
+    },
+    {
+        "model": "products.subcategory",
+        "pk": 20,
+        "fields": {
+            "name": "kettlebells",
+            "friendly_name": "Kettlebells",
+            "category_id": 4
+        }
+    }
+]

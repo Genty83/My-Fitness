@@ -1,0 +1,33 @@
+[{
+        "model": "products.category",
+        "pk": 1,
+        "fields": {
+            "name": "fitness_equipment",
+            "friendly_name": "Fitness Equipment"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 2,
+        "fields": {
+            "name": "gym_equipment",
+            "friendly_name": "Gym Equipment"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 3,
+        "fields": {
+            "name": "sports_equipment",
+            "friendly_name": "Sports Equipment"
+        }
+    },
+    {
+        "model": "products.category",
+        "pk": 4,
+        "fields": {
+            "name": "weights_and_bars",
+            "friendly_name": "Weights and Bars"
+        }
+    }
+]

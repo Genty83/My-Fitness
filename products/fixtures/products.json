@@ -1,0 +1,181 @@
+[{
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "category_id": 1,
+            "subcategory_id": 1,
+            "sku": "BPTRWP",
+            "name": "Body Power Walking Pad",
+            "description": "Tackle the sedentary lifestyle with the Body Power Walking Pad. Designed with a structure that’s compact and portable, the Walking Pad lets you hit your step target each day, whether that’s at home or in the office. The Walking Pad has a frame that folds completely in half for handy storage. At just 5” tall when folded, it can be stored under most sofas, beds and desks. It also boasts built-in transport wheels, meaning it’s easy to move around and unfold quickly. The Walking Pad has a speed range of 0.5 – 3.72 mph (6 kph), which can be adjusted via the included remote control, or, when in “A mode”, it can be adjusted by its intelligent foot-sensing speed control. In “A mode”, walk towards the front of the belt to accelerate, in the middle of the belt to maintain your speed, or to the back of the belt to slow or stop the machine automatically. You can keep track of your speed, as well as your time, distance, calories and steps, on the high-brightness light-emitting LED panel. Track your workouts on the KS Fit app, and view real-time visualisation of your data, undertake effective fitness training plans, customise your own workouts and more.",
+            "price": 699.99,
+            "rating": 4.5,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/4/3/43089_0_1.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 2,
+        "fields": {
+            "category_id": 1,
+            "subcategory_id": 1,
+            "sku": " VOTRVT10",
+            "name": "Volta VT10 Folding Treadmill",
+            "description": "The Volta VT10 Folding Treadmill boasts a tread belt that measures 1200x450mm. Powered by a 1.5HP motor, it has a speed range of 0.8-12 km/h and 15 levels of incline—perfect for incline walks and light runs/jogs from the comfort of your own home. Handgrip controls let you adjust your speed and incline on the move, with quick key buttons on the console, while the super-large 169x68mm backlit LCD display allows viewing of all your important training stats, including time, speed, distance, calories, pulse, program training graphic and incline. Pulse grips are integrated into the handrails for hassle-free heart rate monitoring without disrupting your stride. After a structured routine? Choose from 15 pre-set training programs to get the most out of your time on the treadmill. Cut outs can be found either side of the display for storing your belongings or water bottles. Fixed below the console is an emergency pull cord safety key that clips on to your clothes, stopping the machine for you if you were to fall too far back. Finished your workout and need the floor space? The deck of the Volta VT10 is easy to fold upwards and reduce the machine’s footprint, with built-in transport wheels for handy movement too.",
+            "price": 699.99,
+            "rating": 4.1,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/4/4/44667_0.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 3,
+        "fields": {
+            "category_id": 1,
+            "subcategory_id": 2,
+            "sku": "KECYECM",
+            "name": "Kettler Cycle M Exercise Bike",
+            "description": "The Kettler Cycle M exercise bike offers a smooth, natural ride thanks to its 6kg flywheel, and its manual brake system provides 8 stages of resistance. The integrated computer provides a continuous display of 7 functions including performance profile, and incorporates perspiration-resistant keys for changing your workout on the go. The handlebars feature pulse monitors for measuring your heart rate, and if you exceed your max pulse rate, a visual alarm will appear on the console. The Kettler Cycle M’s seat is adjustable vertical, making it easy to find your ideal riding position, and balanced pedals ensure optimal foot placement. There are transport wheels and the front of the cycle, and height adjustments at the rear.",
+            "price": 429.00,
+            "rating": 3.8,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/4/2/42405_0.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 4,
+        "fields": {
+            "category_id": 1,
+            "subcategory_id": 2,
+            "sku": "BPCYSPIC14",
+            "name": "Body Power SP.IC14 Indoor Studio Cycle",
+            "description": "The Body Power SP.IC14 Indoor Studio Cycle is a stylish studio bike for home use. It comes complete with an easy to read LCD screen, which feeds back time, speed, distance, calories burned and heart rate via the EKG grips. The foam covered, adjustable handlebars feature a unique table holder so you can watch indoor cycle classes, your favourite films or listen to music whilst you train. With a water bottle and holder, you can stay hydrated during the most intense workouts. The stylish and functional design features a smooth 14kg flywheel (460mm diameter) with a quick release tension adjuster, providing continuous tension. The cycle features a three-piece crank and balanced pedals with foot straps, 2 way bearing and chain driven, fully adjustable seat (adjusted both vertically and horizontally). It has a strong, robust frame with transport wheels for easy movement.",
+            "price": 499.00,
+            "rating": 4.9,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/2/7/27222_0.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 5,
+        "fields": {
+            "category_id": 1,
+            "subcategory_id": 3,
+            "sku": "PRELHTXT/21",
+            "name": "ProForm Hybrid Trainer XT",
+            "description": "Save money and space with the ProForm Hybrid Trainer XT, the thoughtfully-engineered machine that combines an elliptical and recumbent bike into one frame. The Hybrid Trainer XT features ProForm’s SMR™ Silent Magnetic Resistance system that can be adjusted through 16 digital levels to suit each workout and user. Used as an elliptical, the Hybrid Trainer XT has a 38m stride length and cushioned pedals, plus soft-touch upper body grips to engage both your upper and lower body simultaneously. Flip the heel of the pedals up, and you can use the Hybrid Trainer XT as a recumbent bike. The console can be lowered for optimal viewing, and the seat is enhanced with comfortable cushioning and full adjustability. The Hybrid Trainer XT is equipped with a 5” high contrast multi-colour display, complete with dual 2” speakers, water bottle holder and integrated device shelf. Download the iFIT app to your tablet or smartphone to get the most from your workouts on the Hybrid Trainer XT. With iFIT, you can access a new workout every day, automatically track your progress, replicate real-life rides and runs with Google Maps™, compete with your friends, and custom-tailor your training to your specific goals (30 Day iFIT Subscription Included*). The Hybrid Trainer XT is also fitted with ActivePulse™ technology (SmartBeat armband required) which automatically adjusts your resistance to keep your heart rate in the optimal zone. Front mounted transport wheels let your easily wheel the Hybrid Trainer XT away and out of sight when you’ve finished your workout.",
+            "price": 699.99,
+            "rating": 4.1,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/4/5/45259_0.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 6,
+        "fields": {
+            "category_id": 1,
+            "subcategory_id": 3,
+            "sku": "SFELXE195/E",
+            "name": "Spirit XE195 Elliptical Cross Trainer",
+            "description": "The Spirit XE195 Elliptical is fitted with a 24lb (10.8kg) flywheel that delivers a smooth, consistent feel throughout the motion. It offers a 20” stride length, plus 20 levels of ECB resistance with handlebar controls for easy adjustments mid-stride. The handlebars themselves are foam-covered for a comfortable grip, and move in tandem with the pedals to effectively engage your upper body. The XE195 utilises a 7.5” LCD display that provides clear access to all the workout metrics you need, and features integrated short cut buttons to your programs, fan, start, stop, level up and level down. Choose your workout from a range of built-in options, including Manual, Hill, Fat Burn, Cardio, Interval and Heart Rate (measured via pulse sensors on the static handlebars below the console). The XE195’s console also includes an integrated fan to keep you cool and a built-in tablet holder to keep your tablet steady while you train. The XE195 boasts Bluetooth compatibility with the SPIRIT FIT App for handy workout data monitoring and recording – just download the app to your device (not included) to get started.",
+            "price": 1299.00,
+            "rating": 4.7,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/4/6/46889_0.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 7,
+        "fields": {
+            "category_id": 1,
+            "subcategory_id": 4,
+            "sku": "PRRO750R",
+            "name": "ProForm 750 R Rowing Machine (30 Day iFIT Subscription Included)",
+            "description": "With a unique space-saving frame that folds in the middle to maximise floor space, the ProForm 750 R Rowing Machine is the ideal option for compact home gyms. 24 levels of digital resistance ensure every stroke is as challenging as you need it to be, utilising ProForm’s SMR™ Silent Magnetic Resistance system for frictionless intensity changes. All touch points are oversized for enhanced comfort, including the pivoting pedals with adjustable nylon foot straps and the aluminium seat rail. The seat is ergonomically designed, and moulded for a better fit, while the handle is made with Soft Touch™ materials for a secure grip. Tilt the 5” high contrast multi-colour display to find the optimal angle for keeping track of your stats, storing your tablet in the integrated holder. Download the iFIT App to your tablet or smart device, connect to the 750 R Rowing Machine, and you can enjoy a virtually unlimited selection of individualised workouts le by the world’s best trainers in the comfort of your own home. Access a workout every day, automatically tack your progress, enjoy real-life routes with Google Maps™, compete with your friends, custom-tailor your training to your specific goals and more (30-day iFIT subscription included*). The ProForm 750 R Rowing Machine also benefits from ActivePulse Technology (SmartBeat Arm Band required – not included) which automatically adjusts your resistance to ensure you stay in the ideal heart rate zone, and SmartAdjust, which puts your resistance in the hands of your iFIT trainers. Play your music or workout out loud with 2 x 2” speakers, or connect your headphones via Bluetooth for a quieter rowing experience.",
+            "price": 999.00,
+            "rating": 4.6,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/4/7/47223_0.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 8,
+        "fields": {
+            "category_id": 1,
+            "subcategory_id": 4,
+            "sku": " ",
+            "name": "Body Power TITAN RowMaster Rowing Machine",
+            "description": "The king of total-body training, a rowing machine’s benefits are undeniable, making the Body Power TITAN RowMaster Rowing Machine an ideal addition to any home or commercial gym. 10 levels of air resistance—easily adjustable by simply pushing up the dial on the large fan—simulates a realistic rowing experience. The RowMaster has a moulded, thick padded seat. Made from PU foam, the seat is comfortable no matter how fast you’re rowing, and moves smoothly along the rail. The rowing machine has adjustable strap pedals to accommodate most shoe sizes, and an ergonomic handle for a secure grip when you need to dig deep with every stroke. The Body Power TITAN RowMaster Rowing Machine is equipped with a monitor that displays all the metrics you need to keep track of, including Time, Watts, Cal/Hr, Pulse (chest strap required), Distance, Time/500 and more. The RowMaster connects to the D-Fit app – just download the app to your smartphone and mount it above the console on the integrated phone holder to enjoy expanded workout data analysis (app subscription may be required). The RowMaster has a pair of transport wheels integrated in to the front of the frame that make it easy to lift and move the rowing machine around the gym floor.",
+            "price": 899.00,
+            "rating": 5.0,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/4/6/46205_0.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 9,
+        "fields": {
+            "category_id": 2,
+            "subcategory_id": 5,
+            "sku": "BFBE3.1S",
+            "name": "Bowflex 3.1s Stowable Utility Bench",
+            "description": "Built strong to last long with heavy duty commercial quality steel, the 3.1 Bench corrects posture and stabilises positioning for a safe, muscle-building free weight workout. The bench adjusts to four different positions: 45°, 90°, flat and decline, and features a removable leg hold-down brace. The 3.1 also wheels away for easy storage, so you can stow it almost anywhere.",
+            "price": 299.00,
+            "rating": 3.9,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/3/4/34688_0_1.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 10,
+        "fields": {
+            "category_id": 2,
+            "subcategory_id": 5,
+            "sku": "PRBEOSXT",
+            "name": "ProForm Olympic System XT",
+            "description": "The ProForm Olympic System XT combines multiple workout stations in a space-saving one-piece design. Adjustable J-hooks and safety spotters can be raised or lowered on the strong, fixed uprights for multiple barbell racking heights, and users can choose between flat, incline or decline backrest positions to target specific muscle groups. This multi-station bench comes with a four-foam leg developer (compatible with Olympic weight plates) for building leg muscles. Rear-mounted weight plates horns allow for organised storage of all your Olympic plates, and the bench comes with a handy exercise chart for workout guidance.",
+            "price": 349.00,
+            "rating": 4.0,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/3/5/35505_0.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 11,
+        "fields": {
+            "category_id": 2,
+            "subcategory_id": 6,
+            "sku": "Body-Solid Compact Leg Press",
+            "name": "SHUA 69 Series Calf Raise",
+            "description": "The SHUA Calf Raise lets users isolate the calves (an often overlooked muscle group) as part of their leg day routine. Part of SHUA’s 69 Series, the Calf Raise is a full commercial machine that’s manufactured from 3mm thick Q235A steel to ensure maximum durability. There a weight horn at the front for loading Olympic weight plates (plate not included), which is angled to avoid plates sliding off during the movement. Angled foot rests and an easily adjustable thig pad downs keep your legs in the ideal position for isolating the calves, while the PU foam seat offers enhanced comfort. An instructional placard sits in front of the user for guidance on how to safely complete the exercise.",
+            "price": 1195.00,
+            "rating": 4.6,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/4/7/47135_0.jpg"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 11,
+        "fields": {
+            "category_id": 2,
+            "subcategory_id": 6,
+            "sku": "BSGCLP100",
+            "name": "Body-Solid Compact Leg Press",
+            "description": "One of the most compact, functional leg press machines available, the GCLP100 is easy to incorporate into most facilities and home gyms. Combining both the leg press and calf raise movements, it’s the ideal tool for heavy targeted leg exercises. Boasting unprecedented smoothness, even when using heavy weights, the heavy-gauge steel construction ensures a lifetime of reliability. Any user can find the perfect fit thanks to the adjustable back pad, while hand grips lock the user into position to avoid lower back stress. Compatible with Olympic weight plates, the GCLP100 incorporates two 12” chrome-plated weight horns for easy weight addition, with a max weight capacity of 1000lbs. Please note, weight plates are not included.",
+            "price": 1199.00,
+            "rating": 3.8,
+            "image": "",
+            "image_url": "https://www.fitness-superstore.co.uk/media/catalog/product/cache/26e3a4659711f00debae118880cd7b23/4/0/40740_0.jpg"
+        }
+    }
+]
