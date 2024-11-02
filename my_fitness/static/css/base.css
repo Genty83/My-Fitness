@@ -1,0 +1,489 @@
+/**/
+:root {
+  color-scheme: light dark;
+}
+
+/*
+Properties
+----------------------------------------
+*/
+@property --shadow-color {
+  syntax: "<color>";
+  initial-value: #00000022;
+  inherits: false;
+}
+
+/*
+Colors
+----------------------------------------
+*/
+.bg-white { background-color: #fff; }
+.bg-black { background-color: #000; }
+.bg-transparent { background-color: transparent; }
+.ft-white { color: #fff; }
+.ft-black { color: #000; }
+
+/*
+Simplify Reset
+----------------------------------------
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2.4rem, 2.5rem, 2.6rem); }
+h2 { font-size: clamp(2rem, 2.1rem, 2.2rem); }
+h3 { font-size: clamp(1.6rem, 1.7rem, 1.8rem); }
+h4 { font-size: clamp(1.4rem, 1.5rem, 1.6rem); }
+h5 { font-size: clamp(1.2rem, 1.3rem, 1.4rem); }
+h6 { font-size: clamp(1rem, 1.1rem, 1.2rem); }
+
+p {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+i {
+  vertical-align: middle;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid hsl(210, 3%, 58%);
+  opacity: 0.25;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+/*
+Font Families
+----------------------------------------
+*/
+
+.ft-serif {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.ft-sans {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.ft-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/*
+Letter Spacing
+----------------------------------------
+*/
+
+.spacing-xs { letter-spacing: -0.05em; }
+.spacing-sm { letter-spacing: -0.025em; }
+.spacing-md { letter-spacing: 0; }
+.spacing-lg { letter-spacing: 0.025em; }
+.spacing-xl { letter-spacing: 0.05em; }
+.spacing-xxl { letter-spacing: 0.1em; }
+
+/*
+Font weights
+----------------------------------------
+*/
+.ft-weight-100 { font-weight: 100; }
+.ft-weight-200 { font-weight: 200; }
+.ft-weight-300 { font-weight: 300; }
+.ft-weight-400 { font-weight: 400; }
+.ft-weight-500 { font-weight: 500; }
+.ft-weight-600 { font-weight: 600; }
+.ft-weight-700 { font-weight: 700; }
+.ft-weight-800 { font-weight: 800; }
+.ft-weight-900 { font-weight: 900; }
+
+/*  
+Font Sizes
+----------------------------------------
+*/
+.ft-size-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.ft-size-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.ft-size-md {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.ft-size-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.ft-size-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.ft-size-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.ft-size-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.ft-size-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.ft-size-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.ft-size-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.ft-size-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.ft-size-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.ft-size-9xl {
+  font-size: 8rem;
+  line-height: 1;
+}
+
+/*
+Text Alignment
+----------------------------------------
+*/
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+.text-start { text-align: start; }
+.text-end { text-align: end; }
+
+/*/
+Text Transform
+----------------------------------------
+*/
+.text-lower { text-transform: lowercase; }
+.text-upper { text-transform: uppercase; }
+.text-capitalize { text-transform: capitalize; }
+.text-normal { text-transform: none; }
+
+/*
+Overflow
+----------------------------------------
+*/
+.overflow-hidden { overflow: hidden; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+.overflow-auto { overflow: auto; }
+
+.overflow-x-hidden { overflow-x: hidden; }
+.overflow-x-visible { overflow-x: visible; }
+.overflow-x-scroll { overflow-x: scroll; }
+.overflow-x-auto { overflow-x: auto; }
+
+.overflow-y-hidden { overflow-y: hidden; }
+.overflow-y-visible { overflow-y: visible; }
+.overflow-y-scroll { overflow-y: scroll; }
+.overflow-y-auto { overflow-y: auto; }
+
+/*
+Gap
+----------------------------------------
+*/
+
+.gap-0 { gap: 0; }
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-5 { gap: 1.25rem; }
+
+/*
+Padding
+----------------------------------------
+*/
+.pad-0 { padding: 0; }
+.pad-1 { padding: 0.25rem; }
+.pad-2 { padding: 0.5rem; }
+.pad-3 { padding: 0.75rem; }
+.pad-4 { padding: 1rem; }
+.pad-5 { padding: 1.25rem; }
+
+.pad-inline-0 { padding-inline: 0; }
+.pad-inline-1 { padding-inline: 0.25rem; }
+.pad-inline-2 { padding-inline: 0.5rem; }
+.pad-inline-3 { padding-inline: 0.75rem; }
+.pad-inline-4 { padding-inline: 1rem; }
+.pad-inline-5 { padding-inline: 1.25rem; }
+
+.pad-block-0 { padding-block: 0; }
+.pad-block-1 { padding-block: 0.25rem; }
+.pad-block-2 { padding-block: 0.5rem; }
+.pad-block-3 { padding-block: 0.75rem; }
+.pad-block-4 { padding-block: 1rem; }
+
+/*
+Margin
+----------------------------------------
+*/
+.margin-auto { margin: auto; }
+.margin-0 { margin: 0; }
+.margin-1 { margin: 0.25rem; }
+.margin-2 { margin: 0.5rem; }
+.margin-3 { margin: 0.75rem; }
+.margin-4 { margin: 1rem; }
+.margin-5 { margin: 1.25rem; }
+
+.margin-inline-0 { margin-inline: 0; }
+.margin-inline-1 { margin-inline: 0.25rem; }
+.margin-inline-2 { margin-inline: 0.5rem; }
+.margin-inline-3 { margin-inline: 0.75rem; }
+.margin-inline-4 { margin-inline: 1rem; }
+.margin-inline-5 { margin-inline: 1.25rem; }
+
+.margin-block-0 { margin-block: 0; }
+.margin-block-1 { margin-block: 0.25rem; }
+.margin-block-2 { margin-block: 0.5rem; }
+.margin-block-3 { margin-block: 0.75rem; }
+.margin-block-4 { margin-block: 1rem; }
+.margin-block-5 { margin-block: 1.25rem; }
+
+/*
+Border Width
+----------------------------------------
+*/
+.bd-width-0 { border-width: 0; }
+.bd-width-1 { border-width: 1px; }
+.bd-width-2 { border-width: 2px; }
+.bd-width-3 { border-width: 3px; }
+.bd-width-4 { border-width: 4px; }
+.bd-width-5 { border-width: 5px; }
+
+/*
+Border Radius
+----------------------------------------
+*/
+.bd-radius-0 { border-radius: 0; }
+.bd-radius-1 { border-radius: 0.125rem; }
+.bd-radius-2 { border-radius: 0.25rem; }
+.bd-radius-3 { border-radius: 0.5rem; }
+.bd-radius-4 { border-radius: 0.75rem; }
+.bd-radius-5 { border-radius: 1rem; }
+.bd-radius-full { border-radius: 100vh; }
+
+/*
+Border Style
+----------------------------------------
+*/
+.bd-solid { border-style: solid; }
+.bd-dashed { border-style: dashed; }
+.bd-dotted { border-style: dotted; }
+.bd-double { border-style: double; }
+.bd-none { border-style: none; }
+.bd-groove { border-style: groove; }
+.bd-ridge { border-style: ridge; }
+.bd-inset { border-style: inset; }
+.bd-outset { border-style: outset; }
+
+/*
+Box Shadow
+----------------------------------------
+*/
+.shadow-1 { box-shadow: 0px 0px 5px 2px var(--shadow-color); }
+.shadow-hover-1:hover { box-shadow: 0px 0px 5px 2px var(--shadow-color); }
+.shadow-focus-1:focus { box-shadow: 0px 0px 5px 2px var(--shadow-color); }
+.shadow-checked-1:checked { box-shadow: 0px 0px 5px 2px var(--shadow-color); }
+
+/*
+Button
+----------------------------------------
+*/
+.btn {
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(90%);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/*
+Button Sizes
+----------------------------------------
+*/
+.btn-sm {
+  height: 25px;
+  width: fit-content;
+  padding-inline: 0.3rem;
+  font-size: 0.7rem;
+}
+.btn-md {
+  height: 35px;
+  width: fit-content;
+  padding-inline: 0.8rem;
+  font-size: 0.8rem;
+}
+.btn-lg {
+  height: 45px;
+  width: fit-content;
+  padding-inline: 1rem;
+  font-size: 0.9rem;
+}
+.btn-xxl {
+  height: 55px;
+  width: fit-content;
+  padding-inline: 1.5rem;
+  font-size: 1.2rem;
+}
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 0.7rem;
+  flex-direction: column;
+  gap: 0.2rem;
+  position: relative;
+}
+
+/*
+Data Title
+----------------------------------------
+*/
+a[data-title]:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px, 2px #00000022;
+  font-size: 0.8rem;
+  font-weight: 500;
+  z-index: 99999;
+}
+
+/*
+Justify Content
+----------------------------------------
+*/
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+
+/*
+Align Items
+----------------------------------------
+*/
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+.align-baseline { align-items: baseline; }
+.align-stretch { align-items: stretch; }
+
+/*
+Transition  
+----------------------------------------
+*/
+.transition-slow { transition: all 1.5s ease; }
+.transition-medium { transition: all 0.5s ease; }
+.transition-fast { transition: all 0.3s ease; }
+
+/*
+Form Controls
+----------------------------------------
+*/
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  min-height: 35px;
+  outline: none;
+  resize: vertical;
+}
+
+::placeholder {
+  color: hsl(210, 3%, 58%);
+}
+
+
+input[type="checkbox"] {
+  height: 16px;
+  width: 16px;
+  appearance: none;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+}
+/* Add check mark from font awesome when checked */
+input[type="checkbox"]:checked::after {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.7rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
