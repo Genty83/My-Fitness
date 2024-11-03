@@ -28,7 +28,7 @@
       <h2>{{ product.name }}</h2>
       <hr>
       <p>{{ product.description }}</p>
-      <p class="ft-weightt-700">Price: £{{ product.price }}</p>
+      <p class="ft-weight-700">Price: £{{ product.price }}</p>
       <form class="flex-row gap-1" action="{% url 'add_to_bag' product.id %}" method="post">
         {% csrf_token %}
         <input 
