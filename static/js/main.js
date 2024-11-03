@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSideMenu();
   });
 
+  // Toasts
   eventHandler('click', '.btn', () => {
     closeToast();
   });
