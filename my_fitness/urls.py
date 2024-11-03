@@ -8,10 +8,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # include the allauth urls
     path('accounts/', include('allauth.urls')),
-    # include the fitness app urls
     path('', include('home.urls')),
-    # include the products app urls
     path('products/', include('products.urls')),
+    path('bag/', include('bag.urls')),
+    path('checkout/', include('checkout.urls')),
+    path('favourites/', include('favourites.urls')),
+    path('newsletter/', include('newsletter.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
