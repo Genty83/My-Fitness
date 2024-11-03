@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container breakpoint-lg width-80 margin-auto pad-5">
+<div class="container grid breakpoint-lg width-80 margin-auto pad-5">
   <!-- Page header content -->
   <div class="flex-row align-center justify-between">
     <h1>All Products</h1>
@@ -20,40 +20,42 @@
   <!-- Page layout -->
   <div class="row">
     <div class="col-span-3 breakpoint-lg">
-      <div class="flex-col pad-2 gap-2 height-50 overflow-y-scroll">
-        <!-- Sort by price -->
-        <h6>Sort by Price</h6>
-        <a href="?sort=price_asc" class="ft-sky-hover-300">Low to High</a>
-        <a href="?sort=price_desc" class="ft-sky-hover-300">High to Low</a>
-        <hr>
-        <!-- Sort By A-Z -->
-        <h6>Sort by Name</h6>
-        <a href="?sort=name_asc" class="ft-sky-hover-300">Sort A-Z</a>
-        <a href="?sort=name_desc" class="ft-sky-hover-300">Sort Z-A</a>
-        <hr>
-        <!-- Filter by Category -->
-        <h6>Filter by Category</h6>
-        <ul class="flex-col gap-2">
-          {% for cat in categories %}
-          <li>
-            <a href="?category={{ cat.id }}" class="ft-sky-hover-300">
-              {{ cat.friendly_name }} - ({{ items_per_category|get_item:cat.name }})
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-        <hr>
-        <!-- Filter by Sub Category -->
-        <h6>Filter by Sub Category</h6>
-        <ul class="flex-col gap-2">
-          {% for sub_cat in sub_categories %}
-          <li>
-            <a href="?subcategory={{ sub_cat.id }}" class="ft-sky-hover-300">
-              {{ sub_cat.friendly_name }} - ({{ items_per_subcategory|get_item:sub_cat.name }})
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
+      <div class="content hide-breakpoint-0 show-breakpoint-lg">
+        <div class="flex-col pad-2 gap-2 height-50 overflow-y-scroll">
+          <!-- Sort by price -->
+          <h6>Sort by Price</h6>
+          <a href="?sort=price_asc" class="ft-sky-hover-300">Low to High</a>
+          <a href="?sort=price_desc" class="ft-sky-hover-300">High to Low</a>
+          <hr>
+          <!-- Sort By A-Z -->
+          <h6>Sort by Name</h6>
+          <a href="?sort=name_asc" class="ft-sky-hover-300">Sort A-Z</a>
+          <a href="?sort=name_desc" class="ft-sky-hover-300">Sort Z-A</a>
+          <hr>
+          <!-- Filter by Category -->
+          <h6>Filter by Category</h6>
+          <ul class="flex-col gap-2">
+            {% for cat in categories %}
+            <li>
+              <a href="?category={{ cat.id }}" class="ft-sky-hover-300">
+                {{ cat.friendly_name }} - ({{ items_per_category|get_item:cat.name }})
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          <hr>
+          <!-- Filter by Sub Category -->
+          <h6>Filter by Sub Category</h6>
+          <ul class="flex-col gap-2">
+            {% for sub_cat in sub_categories %}
+            <li>
+              <a href="?subcategory={{ sub_cat.id }}" class="ft-sky-hover-300">
+                {{ sub_cat.friendly_name }} - ({{ items_per_subcategory|get_item:sub_cat.name }})
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
 
