@@ -29,12 +29,15 @@
       <hr>
       <p>{{ product.description }}</p>
       <p class="ft-weightt-700">Price: £{{ product.price }}</p>
-      <form class="flex-row gap-1" action="#" method="post">
+      <form class="flex-row gap-1" action="{% url 'add_to_bag' product.id %}" method="post">
         {% csrf_token %}
         <input 
           class="bg-slate-600 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
-          type="number" name="quantity" value="1" min="1">
-        <button type="submit" class="btn bg-sky-400 bd-radius-2 ft-black bd-width-0 btn-md">Add to cart</button>
+          type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+        <button type="submit" class="btn bg-sky-400 bd-radius-2 ft-black bd-width-0 btn-md">
+          Add to cart
+        </button>
+        <input type="hidden" name="redirect_url" value="{{ request.path }}">
       </form>
     </div>
   </div>
