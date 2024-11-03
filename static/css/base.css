@@ -347,6 +347,8 @@ Box Shadow
 .shadow-focus-1:focus { box-shadow: 0px 0px 5px 2px var(--shadow-color); }
 .shadow-checked-1:checked { box-shadow: 0px 0px 5px 2px var(--shadow-color); }
 
+.shadow-2 { box-shadow: 2px 2px 8px var(--shadow-color); }
+
 
 /*
 Button
