@@ -757,7 +757,7 @@ Button Sizes
   font-size: 1.2rem;
 }
 .btn-icon {
-  width: 40px;
+  min-width: 40px;
   height: 40px;
   font-size: 0.7rem;
   flex-direction: column;
