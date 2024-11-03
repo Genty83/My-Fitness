@@ -12,10 +12,10 @@
 
         <!-- Search bar -->
         <div class="content hide-breakpoint-0 show-breakpoint-xl">
-          <form action="">
+          <form action="{% url 'all_products' %}">
             <input 
               class="bd-width-0 bg-slate-600 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-400 transition-medium" 
-              type="text" name="search" id="search" placeholder="Search..."
+              type="text" name="q" id="q" placeholder="Search..."
               >
           </form>
         </div>
