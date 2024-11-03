@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleSideMenu();
   });
 
-  // Get the class names from the config file
-  formatElements();
+  eventHandler('click', '.btn', () => {
+    closeToast();
+  });
 });
 
 const eventHandler = (type, selectpr, callback, options) => {
@@ -29,4 +30,8 @@ const toggleSideMenu = () => {
     } else {
       sidebar.style.width = '0px';
     }
+}
+
+const closeToast = () => {
+  document.querySelector('.toast').style.display = 'none';
 }
