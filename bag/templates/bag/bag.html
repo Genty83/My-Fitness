@@ -20,7 +20,41 @@
     <div class="col-span-12">
       {% if bag_items %}
         <div class="table-container">
-          {{ bag_items }}
+          <table>
+            <thead>
+              <tr>
+                <th class="bg-slate-800">Product Info</th>
+                <th class="bg-slate-800"></th>
+                <th class="bg-slate-800">Price</th>
+                <th class="bg-slate-800">Qty</th>
+                <th class="bg-slate-800">Sub Total</th>
+              </tr>
+            </thead>
+
+            {% for item in bag_items %}
+              <tr>
+                <td>
+                  {% if item.product.image == "" %}
+                    <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}">
+                  {% else %}
+                    <img src="{{ item.product.image }}" alt="{{ item.product.name }}">
+                  {% endif %}
+                </td>
+                <td>
+                  <p>{{ item.product.name }} - {{ item.product.sku }}</p>
+                </td>
+                <td>
+                  <p>£{{ item.product.price }}</p>
+                </td>
+                <td>
+                  <p>{{ item.quantity }}</p>
+                </td>
+                <td>
+                  <p>£{{ product.price }}</p>
+                </td>
+              </tr>
+            {% endfor %}
+          </table>
         </div>
       {% else %}
         <p class="ft-size-3xl">Your Bag is empty!</p>
