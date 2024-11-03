@@ -1,13 +1,16 @@
-<div class="toast-container bg-slate-600 bd-radius-2">
+<div class="toast pad-2 bd-radius-2 bg-slate-800 flex-col justify-center align-center gap-4">
   <div class="flex-row pad-4">
-    <div class="toast-circle bg-red-4">
+    <div class="width-fixed-60 height-fixed-60 bd-radius-full grid justify-center align-center bg-emerald-400">
       <i class="fas fa-check ft-size-3xl"></i>
     </div>
   </div>
-  <div class="flex-col">
-    <h6>Success!</h6>
+  <div class="flex-col text-center align-center gap-2">
+    <h6 class="ft-size-3xl ft-emerald-400">Success!</h6>
     <p class="ft-l">
       {{ message }}
     </p>
+    <button class="btn btn-lg bg-emerald-400 bd-width-0 bd-radius-2" type="button">
+      Close
+    </button>
   </div>
 </div>
