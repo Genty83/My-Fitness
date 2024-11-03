@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'favourites',
-    'newsletter'
+    'newsletter',
+    'profiles'
 ]
 
 MIDDLEWARE = [
@@ -91,6 +92,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 5
 ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = "/"
+LOGIN_REDIRECT_URL = "/"
 
 # Allow emails to be sent to the console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
