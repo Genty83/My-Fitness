@@ -347,6 +347,7 @@ Box Shadow
 .shadow-focus-1:focus { box-shadow: 0px 0px 5px 2px var(--shadow-color); }
 .shadow-checked-1:checked { box-shadow: 0px 0px 5px 2px var(--shadow-color); }
 
+
 /*
 Button
 ----------------------------------------
@@ -474,16 +475,14 @@ input[type="checkbox"]:checked::after {
 }
 
 /*
-This file contains all the classes for the layout of the page.
-The file contains the following classes:
-- Widths
-- Heights
-- Base Layouts
-- Container
-- Flex Grid System
-- Grid System
-- Media Queries
+Sticky Header
+----------------------------------------
 */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
 
 /*
 Widths
