@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load viewcomponent_tags %}
 
 {% block title %}
 <title>My Fitness - Shopping Bag</title>
@@ -8,9 +9,9 @@
 <div class="container width-80 breakpoint-lg margin-auto pad-2">
   <div class="flex-row align-center justify-between">
     <h1>Shopping Bag</h1>
-    <a href="{% url 'all_products' %}" class="btn btn-md bg-sky-400 ft-black bd-radius-2 bd-width-0">
+    {% component "button" variant="primary" size="lg" %}
       Back to All Products
-    </a>
+    {% endcomponent %}
   </div>
   <hr>
 </div>
