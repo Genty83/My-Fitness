@@ -26,6 +26,17 @@ class OrderForm(forms.ModelForm):
             'street_address2': 'Street Address 2',
             'county': 'County'
         }
+
+        classes = [
+            'bg-slate-600',
+            'bd-radius-1',
+            'bd-width-0',
+            'shadow-focus-1',
+            'transition-fast',
+            'sh-sky-300',
+            'ft-serif',
+            'pad-inline-1'
+        ]
         
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
@@ -34,5 +45,5 @@ class OrderForm(forms.ModelForm):
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].widget.attrs['class'] = ' '.join(classes)
             self.fields[field].label = False
