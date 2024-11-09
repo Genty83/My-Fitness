@@ -30,7 +30,8 @@ class ProductForm(forms.ModelForm):
             'bd-width-0',
             'shadow-focus-1',
             'transition-fast',
-            'sh-sky-300'
+            'sh-sky-300',
+            'ft-serif'
         ]
 
         self.fields['category_id'].choices = category_ids
