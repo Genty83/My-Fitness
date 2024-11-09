@@ -1,18 +1,31 @@
 {% extends 'base.html' %}
-{% load viewcomponent_tags %}
 
-{% block title %}
-<title>My Fitness - Add Product</title>
-{% endblock %}
+{% block title %}Add Product{% endblock %}
 
 {% block content %}
-<div class="container width-80 breakpoint-lg margin-auto pad-2">
-  <div class="flex-row align-center justify-between">
-    <h1>Add Product</h1>
-    {% component "url_button" variant="primary" size="lg" href="all_products" %}
+<div class="container grid width-50 breakpoint-lg pad-5">
+  <div class="flex-row-wrap align-center justify-between pad-2 gap-2">
+    <h1 class="ft-sky-400">Add Product</h1>
+    <a href="{% url 'all_products' %}" class="btn btn-md bg-sky-400 bd-radius-1 ft-slate-900">
       Back to All Products
-    {% endcomponent %}
+    </a>
   </div>
   <hr>
+  <form class="flex-col-wrap gap-2 pad-2 width-100" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="flex-col-wrap gap-1">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}
+          <ul class="errorlist">
+            {% for error in field.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </form>
 </div>
 {% endblock %}
