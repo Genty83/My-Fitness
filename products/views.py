@@ -199,3 +199,46 @@ def delete_product(request, product_id):
     product = Product.objects.get(pk=product_id)
     return render(request, 'products/delete_product.html', {'product': product})
 
+
+def sale_products(request):
+    """
+    View to display all products on sale.
+    
+    Retrieves all products that have a discount applied and renders the 
+    'sale_products.html' template with the products context.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The rendered 'sale_products.html' template with the context 
+        containing products.
+    """
+    products = Product.objects.filter(discount_price__isnull=False)
+    categories = Category.objects.all()
+    sub_categories = SubCategory.objects.all()
+
+    if request.GET:
+        products = search_products(request, products)
+        products = sort_products(request, products)
+        products = filter_products(request, products)
+
+    items_per_page = 6
+    # Update items per page if user selects a different value
+    if request.GET.get('items_per_page'):
+        items_per_page = request.GET.get('items_per_page')
+
+    products = paginate_products(request, products, items_per_page)
+
+    context = {
+        'products':  products,
+        'categories': categories,
+        'sub_categories': sub_categories,
+        'items_per_category': get_items_per_category(Product.objects.all()),
+        'items_per_subcategory': get_items_per_subcategory(Product.objects.all())
+    }
+
+    context = {
+        'products': products,
+    }
+    return render(request, 'products/sale_products.html', context)
