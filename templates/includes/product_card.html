@@ -1,34 +1,40 @@
-<div class="bg-slate-600 bd-radius-2 flex-col gap-2 justify-between pad-1">
+<div class="card bg-slate-600 bd-radius-2 pad-1">
   <img src="{{ product.image_url }}" alt="{{ product.name }}" class="card-img">
   <div class="card-body flex-col gap-2 justify-between">
     <h6 class="ft-sky-400">{{ product.name }}</h6>
     <p>Price: £{{ product.price }}</p>
+    {% if product.discount_price %}
+      <p>Discount Price: £{{ product.discount_price }}</p>
+    {% endif %}
     <p>{{ product.category_id.friendly_name }}</p>
     <p>{{ product.subcategory_id.friendly_name }}</p>
     <div class="flex-row gap-2">
       <!-- Add buttons to edit or delete product if superuser -->
       {% if user.is_superuser %}
         <a href="{% url 'edit_product' product.id %}" 
-          class="btn height-fixed-30 width-fixed-30 bg-slate-500 bd-radius-2 bd-width-0" title="Edit Product">
+          class="btn pad-2 bg-slate-500 bd-radius-2 bd-width-0" title="Edit Product">
           <i class="fas fa-edit"></i>
         </a>
         <a href="{% url 'delete_product' product.id %}" 
-          class="btn height-fixed-30 width-fixed-30 bg-slate-500 bd-radius-2 bd-width-0" title="Delete Product">
+          class="btn pad-2 bg-slate-500 bd-radius-2 bd-width-0" title="Delete Product">
           <i class="fas fa-trash-alt"></i>
         </a>
       {% endif %}
       <!-- Add to cart button -->
-      <form action="" method="POST">
+      <form class="flex-row gap-1" action="{% url 'add_to_bag' product.id %}" method="post">
         {% csrf_token %}
-        <button type="submit" 
-          class="btn height-fixed-30 width-fixed-30 bg-slate-500 bd-radius-2 bd-width-0" title="Add To Cart">
-          <i class="fas fa-cart-plus"></i>
+        <input 
+          class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
+          type="number" name="quantity" value="1" min="1" max="99">
+        <button type="submit" class="btn pad-2 bg-slate-500 bd-radius-2 bd-width-0">
+          <i class="fas fa-shopping-cart"></i>
         </button>
+        <input type="hidden" name="redirect_url" value="{{ request.path }}">
       </form>
     </div>
+    <!-- Link to product detail page -->
+    <a href="{% url 'product_detail' product.id %}" class="btn btn-md bg-sky-500 bd-radius-2 width-100">
+      View Product
+    </a>
   </div>
-  <!-- Link to product detail page -->
-  <a href="{% url 'product_detail' product.id %}" class="btn btn-md bg-sky-500 bd-radius-2 width-100">
-    View Product
-  </a>
 </div>
