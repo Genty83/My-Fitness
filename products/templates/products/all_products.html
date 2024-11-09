@@ -13,9 +13,9 @@
     <div class="flex-row align-center gap-2">
       <!-- Add buttons for super user to perform crud operations -->
       {% if user.is_superuser %}
-        {% component "url_button" variant="primary" size="lg" href="add_product" %}
-          Add Product
-        {% endcomponent %}
+        <a href="{% url 'add_product' %}" class="btn btn-md bg-sky-400 bd-radius-1 ft-slate-900">
+          Add product
+        </a>  
       {% endif %}
     </div>
   </div>
