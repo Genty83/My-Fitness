@@ -568,12 +568,17 @@ Text Transform
 .text-capitalize { text-transform: capitalize; }
 .text-normal { text-transform: none; }
 
+/*/
+Text Decoration
+----------------------------------------
+*/
+.text-strike { text-decoration: line-through;}
+
 /*
 Text Wrapping
 ----------------------------------------
 */
 .text-no-wrap { text-wrap: nowrap; }
-.text-wrap { text-wrap: wrap; }
 
 /*
 Overflow
