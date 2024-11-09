@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load viewcomponent_tags %}
 
 {% block title %}
 <title>My Fitness - Delete Product</title>
@@ -9,16 +8,18 @@
 <div class="container grid width-80 breakpoint-lg pad-5">
   <div class="flex-row align-center justify-between">
     <h1>Delete Product</h1>
-    {% component "url_button" variant="primary" size="lg" href="all_products" %}
+    <a href="{% url 'all_products' %}" class="btn btn-md bg-sky-400 bd-radius-1 ft-slate-900">
       Back to All Products
-    {% endcomponent %}
+    </a>
   </div>
   <hr>
   <div class="flex-col gap-2 pad-2 width-100">
     <p class="ft-light-2">Are you sure you want to delete {{ product.name }}?</p>
     <form class="flex-row justify-between" method="POST">
       {% csrf_token %}
-      <button type="submit" class="btn btn-lg bg-red-400 ft-black bd-radius-2 bd-width-0">Delete</button>
+      <button type="submit" class="btn btn-lg bg-red-400 ft-black bd-radius-2 bd-width-0">
+        Delete
+      </button>
     </form>
   </div>
 </div>

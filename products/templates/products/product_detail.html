@@ -8,11 +8,11 @@
 {% block content %}
 <div class="container width-70 breakpoint-lg margin-auto pad-3">
   <div class="flex-row align-center justify-between margin-block-2">
-    {% url 'all_products' as url %}
-    {% include 'components/a_btn.html' with url=url name="Back to products" variant="bg-sky-400" %}
+    <a href="{% url 'all_products' %}" class="btn btn-md bg-sky-400 bd-radius-1 ft-slate-900">
+      Back To All products
+    </a>  
   </div>
   <hr>
-
   <div class="row pad-2">
     <div class="col-span-6 breakpoint-lg">
       <div class="img-container width-100 height-100 flex-row justify-center">
@@ -47,24 +47,9 @@
 <div class="container width-70 breakpoint-lg margin-auto pad-3">
   <h2>Related Products</h2>
   <div class="grid tracks-fixed tracks-2 track-size-250 gap-3 pad-2 justify-center">
-    {% for related_product in related_products %}
-      <div class="bg-slate-600 pad-1 bd-radius-2 height-100">
-        <div class="img-container flex-row justify-center">
-          {% if related_product.image == "" %}
-          <img src="{{ related_product.image_url }}" class="img-md" alt="{{ related_product.name }}">
-          {% else %}
-          <img src="{{ related_product.image }}" class="img-md" alt="{{ related_product.name }}">
-          {% endif %}
-        </div>
-        <div class="flex-col justify-between gap-2">
-          <p class="ft-sky-400">{{ related_product.sku }}</p>
-          <h6>{{ related_product.name }}</h6>
-          <p class="ft-weight-700">Price: £{{ related_product.price }}</p>
-          {% url 'product_detail' related_product.id as url %}
-          {% include 'components/a_btn.html' with url=url name="View Product" variant="bg-sky-400" wd="width-100" %}
-        </div>
-      </div>
-      {% endfor %}
+    {% for product in related_products %}
+      {% include 'includes/product_card.html' %}
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
