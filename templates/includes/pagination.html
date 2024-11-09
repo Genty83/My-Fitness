@@ -1,0 +1,66 @@
+<div class="flex-row justify-center align-center gap-2">
+  <div class="pagination flex-row-wrap gap-2 align-center">
+    <ul class="flex-row gap-1 align-center">
+      {% if products.has_previous %}
+        <li>
+          <a href="?page=1" class="btn">First</a>
+        </li>
+        <li>
+          <a href="?page={{ products.previous_page_number }}" class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-lg">
+            &laquo;
+          </a>
+        </li>
+      {% endif %}
+
+      {% for i in page_range|default_if_none:products.paginator.get_elided_page_range %}
+        {% if i == products.number %}
+          <li><span class="btn btn-icon bg-sky-500 bd-radius-full ft-size-lg ft-black">{{ i }}</span></li>
+      {% else %}
+          {% if i == products.paginator.ELLIPSIS %}
+              <li><span class="btn ft-light-1">{{ i }}</span></li>
+          {% else %}
+            <!-- Check for filtering and sorting -->
+            {% if request.GET.category %}
+              <li>
+                <a class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-lg" href="?page={{ i }}&category={{ request.GET.category }}">
+                  {{ i }}
+                </a>
+              </li>
+            {% elif request.GET.subcategory %}
+              <li>
+                <a class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-l" href="?page={{ i }}&subcategory={{ request.GET.subcategory }}">
+                  {{ i }}
+                </a>
+              </li>
+            {% elif request.GET.sort %}
+              <li>
+                <a class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-l" href="?page={{ i }}&sort={{ request.GET.sort }}">
+                {{ i }}
+              </a>
+            </li>
+            {% else %}
+              <li>
+                <a class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-l" href="?page={{ i }}">
+                  {{ i }}
+                </a>
+              </li>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if products.has_next %}
+        <li>
+          <a href="?page={{ products.next_page_number }}" class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-lg">
+            &raquo;
+          </a>
+        </li>
+        <li>
+          <a href="?page={{ products.paginator.num_pages }}" class="btn br-full bg-dark-2-hvr ft-light-1">
+            Last
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

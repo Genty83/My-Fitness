@@ -24,41 +24,7 @@
   <div class="row">
     <div class="col-span-3 breakpoint-lg">
       <div class="content hide-breakpoint-0 show-breakpoint-lg">
-        <div class="flex-col pad-2 gap-2 height-50 overflow-y-scroll">
-          <!-- Sort by price -->
-          <h6>Sort by Price</h6>
-          <a href="?sort=price_asc" class="ft-sky-hover-300">Low to High</a>
-          <a href="?sort=price_desc" class="ft-sky-hover-300">High to Low</a>
-          <hr>
-          <!-- Sort By A-Z -->
-          <h6>Sort by Name</h6>
-          <a href="?sort=name_asc" class="ft-sky-hover-300">Sort A-Z</a>
-          <a href="?sort=name_desc" class="ft-sky-hover-300">Sort Z-A</a>
-          <hr>
-          <!-- Filter by Category -->
-          <h6>Filter by Category</h6>
-          <ul class="flex-col gap-2">
-            {% for cat in categories %}
-            <li>
-              <a href="?category={{ cat.id }}" class="ft-sky-hover-300">
-                {{ cat.friendly_name }} - ({{ items_per_category|get_item:cat.name }})
-              </a>
-            </li>
-            {% endfor %}
-          </ul>
-          <hr>
-          <!-- Filter by Sub Category -->
-          <h6>Filter by Sub Category</h6>
-          <ul class="flex-col gap-2">
-            {% for sub_cat in sub_categories %}
-            <li>
-              <a href="?subcategory={{ sub_cat.id }}" class="ft-sky-hover-300">
-                {{ sub_cat.friendly_name }} - ({{ items_per_subcategory|get_item:sub_cat.name }})
-              </a>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
+        {% include 'includes/products_menu.html' %}
       </div>
     </div>
 
@@ -81,110 +47,12 @@
 
       <div class="grid tracks-fixed track-size-250 gap-3 pad-2 justify-center">
         {% for product in products %}
-          <div class="card bg-slate-600 bd-radius-2 pad-1">
-            <img src="{{ product.image_url }}" alt="{{ product.name }}" class="card-img">
-            <div class="card-body flex-col gap-2 justify-between">
-              <h6 class="ft-sky-400">{{ product.name }}</h6>
-              <p>Price: £{{ product.price }}</p>
-              <p>{{ product.category_id.friendly_name }}</p>
-              <p>{{ product.subcategory_id.friendly_name }}</p>
-              <div class="flex-row gap-2">
-                <!-- Add buttons to edit or delete product if superuser -->
-                {% if user.is_superuser %}
-                  <a href="{% url 'edit_product' product.id %}" 
-                    class="btn height-fixed-30 width-fixed-30 bg-slate-500 bd-radius-2 bd-width-0" title="Edit Product">
-                    <i class="fas fa-edit"></i>
-                  </a>
-                  <a href="{% url 'delete_product' product.id %}" 
-                    class="btn height-fixed-30 width-fixed-30 bg-slate-500 bd-radius-2 bd-width-0" title="Delete Product">
-                    <i class="fas fa-trash-alt"></i>
-                  </a>
-                {% endif %}
-                <!-- Add to cart button -->
-                <form action="" method="POST">
-                  {% csrf_token %}
-                  <button type="submit" 
-                    class="btn height-fixed-30 width-fixed-30 bg-slate-500 bd-radius-2 bd-width-0" title="Add To Cart">
-                    <i class="fas fa-cart-plus"></i>
-                  </button>
-                </form>
-              </div>
-              <!-- Link to product detail page -->
-              <a href="{% url 'product_detail' product.id %}" class="btn btn-md bg-sky-500 bd-radius-2 width-100">
-                View Product
-              </a>
-            </div>
-          </div>
+          {% include 'includes/product_card.html' %}
         {% endfor %}
       </div>
 
       <!-- Pagination -->
-      <div class="flex-row justify-center align-center gap-2">
-        <div class="pagination flex-row-wrap gap-2 align-center">
-          <ul class="flex-row gap-1 align-center">
-            {% if products.has_previous %}
-              <li>
-                <a href="?page=1" class="btn">First</a>
-              </li>
-              <li>
-                <a href="?page={{ products.previous_page_number }}" class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-lg">
-                  &laquo;
-                </a>
-              </li>
-            {% endif %}
-
-            {% for i in page_range|default_if_none:products.paginator.get_elided_page_range %}
-              {% if i == products.number %}
-                <li><span class="btn btn-icon bg-sky-500 bd-radius-full ft-size-lg ft-black">{{ i }}</span></li>
-            {% else %}
-                {% if i == products.paginator.ELLIPSIS %}
-                    <li><span class="btn ft-light-1">{{ i }}</span></li>
-                {% else %}
-                  <!-- Check for filtering and sorting -->
-                  {% if request.GET.category %}
-                    <li>
-                      <a class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-lg" href="?page={{ i }}&category={{ request.GET.category }}">
-                        {{ i }}
-                      </a>
-                    </li>
-                  {% elif request.GET.subcategory %}
-                    <li>
-                      <a class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-l" href="?page={{ i }}&subcategory={{ request.GET.subcategory }}">
-                        {{ i }}
-                      </a>
-                    </li>
-                  {% elif request.GET.sort %}
-                    <li>
-                      <a class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-l" href="?page={{ i }}&sort={{ request.GET.sort }}">
-                      {{ i }}
-                    </a>
-                  </li>
-                  {% else %}
-                    <li>
-                      <a class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-l" href="?page={{ i }}">
-                        {{ i }}
-                      </a>
-                    </li>
-                  {% endif %}
-                {% endif %}
-              {% endif %}
-            {% endfor %}
-
-            {% if products.has_next %}
-              <li>
-                <a href="?page={{ products.next_page_number }}" class="btn btn-icon bg-slate-hover-500 bd-radius-full ft-size-lg">
-                  &raquo;
-                </a>
-              </li>
-              <li>
-                <a href="?page={{ products.paginator.num_pages }}" class="btn br-full bg-dark-2-hvr ft-light-1">
-                  Last
-                </a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
+      {% include 'includes/pagination.html' %}
     </div>
   </div>
 </div>
