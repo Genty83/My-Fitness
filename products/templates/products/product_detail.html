@@ -8,9 +8,8 @@
 {% block content %}
 <div class="container width-70 breakpoint-lg margin-auto pad-3">
   <div class="flex-row align-center justify-between margin-block-2">
-    <a href="{% url 'all_products' %}" class="btn btn-md bd-radius-2 bg-sky-400 ft-black ft-weight-500">
-      Back To Products
-    </a>
+    {% url 'all_products' as url %}
+    {% include 'components/a_btn.html' with url=url name="Back to products" variant="bg-sky-400" %}
   </div>
   <hr>
 
@@ -61,10 +60,8 @@
           <p class="ft-sky-400">{{ related_product.sku }}</p>
           <h6>{{ related_product.name }}</h6>
           <p class="ft-weight-700">Price: £{{ related_product.price }}</p>
-          <a href="{% url 'product_detail' related_product.id %}" 
-            class="btn btn-md bd-radius-2 bg-sky-400 ft-black ft-weight-500 width-100">
-            View Product
-          </a>
+          {% url 'product_detail' related_product.id as url %}
+          {% include 'components/a_btn.html' with url=url name="View Product" variant="bg-sky-400" wd="width-100" %}
         </div>
       </div>
       {% endfor %}
