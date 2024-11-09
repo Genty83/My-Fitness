@@ -18,11 +18,11 @@ load_dotenv()
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ["8000-genty83-myfitness-y0n06gwpb2f.ws.codeinstitute-ide.net"]
+ALLOWED_HOSTS = s.getenv('ALLOWED_HOSTS')
+CSRF_TRUSTED_ORIGINS = s.getenv('CSRF_TRUSTED_ORIGINS')
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-genty83-myfitness-y0n06gwpb2f.ws.codeinstitute-ide.net']
 
 
 # Application definition
