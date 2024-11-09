@@ -24,10 +24,19 @@ class ProductForm(forms.ModelForm):
         category_ids = [(int(c.id), c.get_friendly_name()) for c in categories]
         subcategory_ids = [(int(s.id), s.get_friendly_name()) for s in sub_categories]
 
+        classes = [
+            'bg-slate-600',
+            'bd-radius-1',
+            'bd-width-0',
+            'shadow-focus-1',
+            'transition-fast',
+            'sh-sky-300'
+        ]
+
         self.fields['category_id'].choices = category_ids
         self.fields['subcategory_id'].choices = subcategory_ids
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+            field.widget.attrs['class'] = ' '.join(classes)
 
 
 # Update product form
