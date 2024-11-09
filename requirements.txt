@@ -1,5 +1,9 @@
 asgiref==3.8.1
 Django==5.1.2
 django-allauth==65.1.0
+django-countries==7.6.1
+django-viewcomponent==1.0.5
 pillow==11.0.0
+python-dotenv==1.0.1
 sqlparse==0.5.1
+stripe==11.2.0
