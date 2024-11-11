@@ -842,12 +842,13 @@ Table Styling
 */
 .table-container {
   width: 100%;
-  height: 600px;
+  height: fit-content;
   overflow: auto;
 }
 
 table {
   border-collapse: collapse;
+  height: auto;
 }
 th {
   height: 40px;
@@ -858,6 +859,7 @@ th {
 td {
   max-height: 40px;
   padding: 0.5rem;
+  border-bottom: 1px solid var(--slate-600);
 
 }
 td img {
@@ -865,6 +867,7 @@ td img {
   width: 70px;
   object-fit: cover;
 }
+
 
 /*
 Sticky Header
