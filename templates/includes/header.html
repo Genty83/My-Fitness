@@ -49,6 +49,13 @@
                   Clearance Items
                 </a>
               </li>
+              {% if subscribed_user %}
+                <li class="transition-medium ft-sky-hover-400">
+                  <a href="{% url 'newsletter' %}">
+                    Newsletter
+                  </a>
+                </li>
+              {% endif %}
             </ul>
           </nav>
           <!-- Navbar end -->
