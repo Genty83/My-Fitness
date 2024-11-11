@@ -29,8 +29,11 @@
             <th class="bg-slate-800">Product Info</th>
             <th class="bg-slate-800"></th>
             <th class="bg-slate-800">Price</th>
+            <th class="bg-slate-800">Discount Price</th>
             <th class="bg-slate-800">Qty</th>
             <th class="bg-slate-800">Sub Total</th>
+            <th class="bg-slate-800">Adjust Bag</th>
+            <th class="bg-slate-800">Remove</th>
           </tr>
         </thead>
 
@@ -46,9 +49,24 @@
             <td>
               <p>{{ item.product.name }} - {{ item.product.sku }}</p>
             </td>
-            <td>
-              <p>£{{ item.product.price }}</p>
-            </td>
+            {% if item.product.discount_price == None %}
+              <td>
+                <p>£{{ item.product.price }}</p>
+              </td>
+            {% else %}
+              <td>
+                <p class="ft-red-400 text-strike">£{{ item.product.price }}</p>
+              </td>
+            {% endif %}
+            {% if item.product.discount_price == None %}
+              <td>
+                <p>-</p>
+              </td>
+            {% else %}
+              <td>
+                <p class="ft-emerald-400">£{{ item.product.discount_price }}</p>
+              </td>
+            {% endif %}
             <td>
               <p>{{ item.quantity }}</p>
             </td>
@@ -65,7 +83,7 @@
                   <input 
                     class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
                     type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99">
-                  <button type="submit" class="btn btn-md bg-sky-400 bd-width-0 bd-radius-1">Adjust</button>
+                  <button type="submit" class="btn btn-md bg-sky-400 bd-width-0 bd-radius-1 ft-slate-900">Adjust</button>
                 </div>
               </form>
             </td>
@@ -76,7 +94,7 @@
                 <input 
                   class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
                   type="hidden" name="product_id" value="{{ item.item_id }}">
-                <button type="submit" class="btn btn-md bg-sky-400 bd-width-0 bd-radius-1">Remove</button>
+                <button type="submit" class="btn btn-md bg-sky-400 bd-width-0 bd-radius-1 ft-slate-900">Remove</button>
               </form>
             </td>
         {% endfor %}
