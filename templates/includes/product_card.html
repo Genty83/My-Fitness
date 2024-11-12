@@ -10,6 +10,14 @@
     {% endif %}
     <p>{{ product.category_id.friendly_name }}</p>
     <p>{{ product.subcategory_id.friendly_name }}</p>
+    <p class="flex-row align-center gap-2">
+      <i class="fas fa-star ft-amber-400"></i> 
+      {% if product.rating == None %}
+        0
+      {% else %}
+        {{ product.rating|floatformat:1 }}
+      {% endif %}
+    </p>
     <div class="flex-row gap-2">
       <!-- Add buttons to edit or delete product if superuser -->
       {% if user.is_superuser %}
