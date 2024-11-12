@@ -16,4 +16,5 @@ urlpatterns = [
     path('favourites/', include('favourites.urls')),
     path('newsletter/', include('newsletter.urls')),
     path('profiles/', include('profiles.urls')),
+    path('reviews/', include('reviews.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
