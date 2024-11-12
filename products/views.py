@@ -8,7 +8,7 @@ from .product_utils import (
 from django.template.defaulttags import register
 from django.contrib.auth.decorators import login_required
 from .forms import ProductForm
-
+from reviews.models import ProductReview
 
 
 @register.filter
@@ -48,6 +48,10 @@ def all_products(request):
 
     products = paginate_products(request, products, items_per_page)
 
+    # Get avg rating using the get_average_rating function
+    for product in products:
+        product.rating = ProductReview.get_average_rating(product)
+
     context = {
         'products':  products,
         'categories': categories,
@@ -78,9 +82,19 @@ def product_detail(request, product_id):
     related_products = Product.objects.filter(
         category_id=product.category_id).exclude(id=product.id).order_by('?')[:4]
 
+    reviews = ProductReview.objects.filter(product=product)
+    # Calculate the stars and half stars for the rating
+    product.rating = ProductReview.get_average_rating(product)
+    stars = int(product.rating)
+    half_stars = 1 if product.rating % 1 >= 0.5 else 0
+
     template = 'products/product_detail.html'
     context = {
         'product': product,
+        'reviews': reviews,
+        'stars': range(stars),
+        'half_stars': half_stars,
+        'categories': Category.objects.all(),
         'categories': Category.objects.all(),
         'sub_categories': SubCategory.objects.all(),
         'related_products': related_products,
