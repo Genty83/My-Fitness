@@ -20,6 +20,8 @@ class ProductReview(models.Model):
     title = models.CharField(max_length=100)
     review = models.TextField()
     rating = models.DecimalField(max_digits=2, decimal_places=1)
+    stars = models.IntegerField(default=0)
+    half_star = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
