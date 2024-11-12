@@ -83,17 +83,16 @@ def product_detail(request, product_id):
         category_id=product.category_id).exclude(id=product.id).order_by('?')[:4]
 
     reviews = ProductReview.objects.filter(product=product)
-    # Calculate the stars and half stars for the rating
-    product.rating = ProductReview.get_average_rating(product)
-    stars = int(product.rating)
-    half_stars = 1 if product.rating % 1 >= 0.5 else 0
+    # Calculate the stars and half stars for each review
+    for review in reviews:
+        review.stars = range(int(review.rating))
+        if review.rating % 1 != 0:
+            review.half_star = True
 
     template = 'products/product_detail.html'
     context = {
         'product': product,
         'reviews': reviews,
-        'stars': range(stars),
-        'half_stars': half_stars,
         'categories': Category.objects.all(),
         'categories': Category.objects.all(),
         'sub_categories': SubCategory.objects.all(),
