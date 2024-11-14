@@ -1,77 +1,156 @@
 {% extends 'base.html' %}
-{% load viewcomponent_tags %}
 
 {% block title %}
 <title>My Fitness - Checkout</title>
 {% endblock %}
 
 {% block content %}
-<div class="container grid gap-1 width-80 breakpoint-lg margin-auto pad-2">
+<div class="container width-80 breakpoint-lg margin-auto pad-2">
   <h1>Checkout</h1>
   <hr>
-  <div class="container width-80 breakpoint-lg margin-out">
-    <div class="row">
-      <div class="col-span-5 breakpoint-lg grid gap-1">
-        <p>Please fill out the form below to complete your order</p>
-        <form class="grid width-100 gap-2 bg-slate-800 bd-radius-1 pad-2" action="{% url 'checkout' %}" method="post" id="payment-form">
-          {% csrf_token %}
-          <fieldset class="bd-width-1 bd-slate-600 bd-solid pad-3 flex-col gap-2 width-100 bd-radius-1">
-            <legend class="pad-inline-2">Details</legend>
-            {{ order_form.full_name }}
-            {{ order_form.email }}
-          </fieldset>
-          <fieldset class="bd-width-1 bd-slate-600 bd-solid pad-3 flex-col gap-2 width-100 bd-radius-1">
-            <legend class="pad-inline-2">Delivery</legend>
-            {{ order_form.phone_number }}
-            {{ order_form.country }}
-            {{ order_form.postcode }}
-            {{ order_form.postcode }}
-            {{ order_form.street_address1 }}
-            {{ order_form.street_address2 }}
-            {{ order_form.county }}
-            {% if user.is_authenticated %}
-              <label for="id_save_info">Save this delivery information to my profile</label>
-              <input class="bg-slate-600 bd-radius-1" type="checkbox" name="id_save_info" id="id_save_info">
-            {% else %}
-            <label for="id_save_info">
-              <a class="ft-sky-300" href="{% url 'account_signup' %}">Create an account</a> or 
-              <a class="ft-sky-300" href="{% url 'account_login' %}">Login</a> to save this information
-            </label>
-            {% endif %}
-          </fieldset>
-          <fieldset class="bd-width-1 bd-slate-600 bd-solid pad-3 flex-col gap-2 width-100 bd-radius-1">
-            <legend class="pad-inline-2">Payment</legend>
-            <!-- Stripe card element -->
-            <div>
+  <div class="row gap-2">
+    <div class="col-span-5 breakpoint-lg grid gap-1">
+      <p>Please fill out the form below to complete your order</p>
+      <form class="grid width-100 gap-2 bg-slate-800 bd-radius-1 pad-2" 
+        action="{% url 'checkout' %}" method="post" id="payment-form">
+        {% csrf_token %}
+        <fieldset class="bd-width-1 bd-slate-600 bd-solid pad-3 flex-col gap-2 width-100 bd-radius-1">
+          <legend class="pad-inline-2">Details</legend>
+          {{ order_form.full_name }}
+          {{ order_form.email }}
+        </fieldset>
+        <fieldset class="bd-width-1 bd-slate-600 bd-solid pad-3 flex-col gap-2 width-100 bd-radius-1">
+          <legend class="pad-inline-2">Delivery</legend>
+          {{ order_form.phone_number }}
+          {{ order_form.country }}
+          {{ order_form.postcode }}
+          {{ order_form.postcode }}
+          {{ order_form.street_address1 }}
+          {{ order_form.street_address2 }}
+          {{ order_form.county }}
+          {% if user.is_authenticated %}
+            <label for="id_save_info">Save this delivery information to my profile</label>
+            <input class="bg-slate-600 bd-radius-1" type="checkbox" name="id_save_info" id="id_save_info">
+          {% else %}
+          <label for="id_save_info">
+            <a class="ft-sky-300" href="{% url 'account_signup' %}">Create an account</a> or 
+            <a class="ft-sky-300" href="{% url 'account_login' %}">Login</a> to save this information
+          </label>
+          {% endif %}
+        </fieldset>
+        <fieldset class="bd-width-1 bd-slate-600 bd-solid pad-3 flex-col gap-2 width-100 bd-radius-1">
+          <legend class="pad-inline-2">Payment</legend>
+          <!-- Stripe card element -->
+          <div>
 
-            </div>
-            <!-- Used to display form errors -->
-            <div id="card-errors" role="alert">
-
-            </div>
-          </fieldset>
-          <div class="flex-row gap-2">
-            <a class="btn btn-md bg-sky-400 ft-slate-900 bd-radius-1 bd-width-0" href="{% url 'bag' %}">
-              <i class="fas fa-chevron-left"></i>
-              Adjust Bag
-            </a>
-            <button class="btn btn-md bg-sky-400 ft-slate-900 bd-radius-1 bd-width-0" type="submit">
-              <i class="fas fa-lock"></i>
-              Complete Order
-            </button>
           </div>
-          <p>
-            <span>
-              <i class="fas fa-exclamation-circle"></i>
-            </span>
-            <span>
-              Your card will be charged <strong>£{{grand_total|floatformat:2}}</strong>
-            </span>
-          </p>
-        </form>
-      </div>
-      <div class="col-span-7 breakpoint-lg">
+          <!-- Used to display form errors -->
+          <div id="card-errors" role="alert">
 
+          </div>
+        </fieldset>
+        <div class="flex-row gap-2">
+          <a class="btn btn-md bg-sky-400 ft-slate-900 bd-radius-1 bd-width-0" href="{% url 'bag' %}">
+            <i class="fas fa-chevron-left"></i>
+            Adjust Bag
+          </a>
+          <button class="btn btn-md bg-sky-400 ft-slate-900 bd-radius-1 bd-width-0" type="submit">
+            <i class="fas fa-lock"></i>
+            Complete Order
+          </button>
+        </div>
+        <p>
+          <span>
+            <i class="fas fa-exclamation-circle"></i>
+          </span>
+          <span>
+            Your card will be charged <strong>£{{grand_total|floatformat:2}}</strong>
+          </span>
+        </p>
+      </form>
+    </div>
+    <div class="col-span-7 breakpoint-lg gap-1 pad-2 flex-col overflow-wrapper">
+      <h5>Order Summary</h5>
+      <table>
+        <thead>
+          <tr>
+            <th class="bg-slate-800">Product Info</th>
+            <th class="bg-slate-800"></th>
+            <th class="bg-slate-800">Price</th>
+            <th class="bg-slate-800">Discount Price</th>
+            <th class="bg-slate-800">Qty</th>
+            <th class="bg-slate-800">Sub Total</th>
+            <th class="bg-slate-800">Adjust Bag</th>
+            <th class="bg-slate-800">Remove</th>
+          </tr>
+        </thead>
+
+        {% for item in bag_items %}
+          <tr>
+            <td>
+              {% if item.product.image == "" %}
+                <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}">
+              {% else %}
+                <img src="{{ item.product.image }}" alt="{{ item.product.name }}">
+              {% endif %}
+            </td>
+            <td>
+              <p>{{ item.product.name }} - {{ item.product.sku }}</p>
+            </td>
+            {% if item.product.discount_price == None %}
+              <td>
+                <p>£{{ item.product.price }}</p>
+              </td>
+            {% else %}
+              <td>
+                <p class="ft-red-400 text-strike">£{{ item.product.price }}</p>
+              </td>
+            {% endif %}
+            {% if item.product.discount_price == None %}
+              <td>
+                <p>-</p>
+              </td>
+            {% else %}
+              <td>
+                <p class="ft-emerald-400">£{{ item.product.discount_price }}</p>
+              </td>
+            {% endif %}
+            <td>
+              <p>{{ item.quantity }}</p>
+            </td>
+            <td>
+              <p>£{{ item.sub_total }}</p>
+            </td>
+            <!-- Adjust bag -->
+            <td>
+              <form action="{% url 'adjust_bag' item.product.id %}" method="POST">
+                {% csrf_token %}
+                <div class="flex-row gap-1">
+                  <input type="hidden" name="product_id" value="{{ item.product.id }}">
+                  <input type="hidden" name="quantity" value="{{ item.quantity }}">
+                  <input 
+                    class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
+                    type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99">
+                  <button type="submit" class="btn btn-md bg-sky-400 bd-width-0 bd-radius-1 ft-slate-900">Adjust</button>
+                </div>
+              </form>
+            </td>
+            <!-- Remove from bag -->
+            <td>
+              <form action="{% url 'remove_from_bag' item.product.id %}" method="POST">
+                {% csrf_token %}
+                <input 
+                  class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
+                  type="hidden" name="product_id" value="{{ item.item_id }}">
+                <button type="submit" class="btn btn-md bg-sky-400 bd-width-0 bd-radius-1 ft-slate-900">Remove</button>
+              </form>
+            </td>
+        {% endfor %}
+      </table>
+      <div class="flex-col gap-2 align-end">
+        <p class="ft-slate-300"><strong>Bag Total: £{{ total|floatformat:2 }}</strong></p>
+        <p class="ft-slate-300">Delivery Cost: £{{ delivery|floatformat:2 }}</p>
+        <p class="ft-size-lg">Grand Total: £{{ grand_total|floatformat:2 }}</p>
       </div>
     </div>
   </div>

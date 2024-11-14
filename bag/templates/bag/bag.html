@@ -14,7 +14,7 @@
 
 <div class="container width-80 breakpoint-lg margin-auto pad-2 flex-col gap-2">
   {% if bag_items %}
-    <div class="table-container">
+    <div class="overflow-wrapper">
       <table>
         <thead>
           <tr>
@@ -96,13 +96,13 @@
     <p class="ft-size-3xl">Your Bag is empty!</p>
   {% endif %}
   {% if bag_items %}
-  <div class="flex-row align-end gap-2">
+  <div class="flex-row-wrap align-end gap-2">
     <div class="flex-col gap-2">
       <p class="ft-slate-300"><strong>Bag Total: £{{ total|floatformat:2 }}</strong></p>
       <p class="ft-slate-300">Delivery Cost: £{{ delivery|floatformat:2 }}</p>
       <p class="ft-size-lg">Grand Total: £{{ grand_total|floatformat:2 }}</p>
     </div>
-    <div class="flex-row gap-2">
+    <div class="flex-row-wrap gap-2">
       <a href="{% url 'all_products' %}" class="btn btn-md bd-sky-400 bd-width-2 bd-solid bd-radius-1 ft-slate-100">
         <i class="fas fa-shopping-cart"></i>
         Continue Shopping
