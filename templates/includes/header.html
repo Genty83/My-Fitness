@@ -34,10 +34,31 @@
                   Home
                 </a>
               </li>
-              <li class="transition-medium ft-sky-hover-400">
+              <li class="transition-medium ft-sky-hover-400 dropdown-btn">
                 <a href="{% url 'all_products' %}"">
                   Shop All Products
                 </a>
+                <div class="dropdown-content bg-slate-900">
+                  <div class="grid tracks-5 track-size-250 tracks-fixed gap-2 pad-2">
+                    {% for cat in categories %}
+                        <div class="flex-col gp-2">
+                          <h6 class="ft-sky-400">{{ cat.friendly_name }}</h6>
+                          <ul class="flex-col gp-2">
+                            {% for subcat in sub_categories %}
+                              {% if cat.name == subcat.category_id.name %}
+                                <li>
+                                  <!-- Filter by sub category -->
+                                  <a href="{% url 'all_products' %}?subcategory={{ subcat.id }}" class="ft-slate-50 ft-sky-hover-300">
+                                    {{ subcat.friendly_name }}
+                                  </a>
+                                </li>
+                              {% endif %}
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endfor %}
+                  </div>
+                </div>
               </li>
               <li class="transition-medium ft-sky-hover-400">
                 <a href="{% url 'sale_products' %}">
