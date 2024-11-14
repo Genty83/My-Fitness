@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load viewcomponent_tags %}
 
 {% block title %}
 <title>My Fitness - {{ product.name }}</title>
@@ -8,12 +7,12 @@
 {% block content %}
 <div class="container width-70 breakpoint-lg margin-auto pad-3">
   <div class="flex-row align-center justify-between margin-block-2">
-    <a href="{% url 'all_products' %}" class="btn btn-md bg-sky-400 bd-radius-1 ft-slate-900">
-      Back To All products
-    </a>  
+    <h1>{{ product.name }}</h1>
+    <a href="{% url 'all_products' %}" class="btn btn-md ft-slate-900 bg-sky-400 bd-radius-2">Back to products</a>
   </div>
   <hr>
-  <div class="row pad-2">
+
+  <div class="row pad-2 gap-2">
     <div class="col-span-6 breakpoint-lg">
       <div class="img-container width-100 height-100 flex-row justify-center">
         {% if product.image == "" %}
@@ -33,7 +32,7 @@
         {% csrf_token %}
         <input 
           class="bg-slate-600 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
-          type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+          type="number" name="quantity" value="1" min="1" max="99">
         <button type="submit" class="btn bg-sky-400 bd-radius-2 ft-black bd-width-0 btn-md">
           Add to cart
         </button>
@@ -46,46 +45,43 @@
 <!-- Reviews -->
 <div class="container width-70 breakpoint-lg margin-auto pad-3">
   <div class="flex-col gap-2">
-    <div class="flex-row-wrap align-center justify-between gap-2">
+    <div class="flex-row-wrap gap-2 align-center justify-between">
       <h2>Reviews</h2>
-      <a href="#" class="btn btn-md bd-sky-400 bd-width-2 bd-solid bd-radius-1 ft-slate-100">
-        Review This Product
-      </a>  
+      <div class="flex-row gap-2">
+        <a href="{% url 'add_review' product.id %}" class="btn bg-sky-400 bd-radius-2 ft-black bd-width-0 btn-md">
+          Add Review
+        </a>
+      </div>
+      
     </div>
     <hr>
     <div class="flex-col gap-2 overflow-container">
-      {% for review in reviews %}
-      <div class="bg-slate-600 bd-radius-2 pad-2 transition-slow shadow-hover-1 sh-sky-300">
-        <p class="ft-sky-400">{{ review.username }}</p>
-        <p class="ft-primary-1">{{ review.date }}</p>
-        <hr>
-        <h5 class="ft-weight-700">{{ review.title }}</h5>
-        <p>{{ review.review }}</p>
-        <div class="flex-row gap-2 align-center">
-          <p class="ft-weight-700">Rating: {{ review.rating }}</p>
-          <!-- Stars -->
-          <div class="flex-row gap-1">
-            {% for star in review.stars %}
-              <i class="fas fa-star ft-amber-400"></i>
-            {% endfor %}
-            <!-- Half stars -->
-            {% if review.half_star %}
-              <i class="fas fa-star-half-alt ft-amber-400"></i>
-            {% endif %}
-          </div>
+      {% if reviews %}
+        {% for review in reviews %}
+          {% include 'includes/review_card.html' %}
+        {% endfor %}
+      {% else %}
+        <div class="flex-row justify-center">
+          <h3>No Reviews Yet. Be the first to review this product.</h3>
         </div>
-      </div>
-      {% endfor %}
+      {% endif %}
     </div>
+    {% if reviews %}
+      <div class="flex-row align-center justify-center">
+        <a href="{% url 'all_reviews' product.id %}" class="btn bg-sky-400 bd-radius-2 ft-black bd-width-0 btn-md">
+          View All Reviews
+        </a>
+      </div>
+    {% endif %}
   </div>  
 </div>
 
-
+<!-- Related Products -->
 <div class="container width-70 breakpoint-lg margin-auto pad-3">
   <h2>Related Products</h2>
   <div class="grid tracks-fixed tracks-2 track-size-250 gap-3 pad-2 justify-center">
     {% for product in related_products %}
-      {% include 'includes/product_card.html' %}
+    {% include 'includes/product_card.html' %}
     {% endfor %}
   </div>
 </div>
