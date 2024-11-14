@@ -33,7 +33,8 @@ class ProductReviewForm(forms.ModelForm):
             'sh-sky-300',
             'bd-width-0',
             'width-100',
-            'pad-inline-1'
+            'pad-inline-1',
+            'ft-serif'
         ]
         
         self.fields['title'].label = 'Title'

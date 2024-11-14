@@ -16,7 +16,7 @@ class ProductReview(models.Model):
         date (DateTimeField): The date and time when the review was created.
     """
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     review = models.TextField()
     rating = models.DecimalField(max_digits=2, decimal_places=1)
