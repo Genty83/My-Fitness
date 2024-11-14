@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 <title>My Fitness - Checkout</title>
@@ -41,6 +42,8 @@
         <fieldset class="bd-width-1 bd-slate-600 bd-solid pad-3 flex-col gap-2 width-100 bd-radius-1">
           <legend class="pad-inline-2">Payment</legend>
           <!-- Stripe card element -->
+          <div id="card-element"></div>
+          <div id="card-errors"></div>
           <div>
 
           </div>
@@ -155,4 +158,11 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+  {{ block.super }}
+  {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+  {{ client_secret|json_script:"id_client_secret" }}
+  <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
