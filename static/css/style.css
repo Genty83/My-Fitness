@@ -1444,3 +1444,8 @@ td img {
   width: 70px;
   object-fit: cover;
 }
+
+#card-element {
+  color: var(--slate-100);
+}
+
