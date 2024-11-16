@@ -19,16 +19,24 @@
             <br>
             Shop now and get 10% off your first order when you join today.
           </p>
-          <div class="flex-row align-center gap-2">
+          {% if user.is_authenticated %}
             <a href="{% url 'all_products' %}" class="btn btn-lg bg-sky-400 bd-radius-2 ft-black ft-weight-600">
               Shop Now
               <i class="fas fa-arrow-right"></i>
             </a>
-            <a href="{% url 'account_signup' %}"" class="btn btn-lg bg-slate-400 bd-radius-2 ft-black ft-weight-600">
-              Sign Up
-              <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
+            {% else %}
+            <div class="flex-row align-center gap-2">
+              <a href="{% url 'all_products' %}" class="btn btn-lg bg-sky-400 bd-radius-2 ft-black ft-weight-600">
+                Shop Now
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="{% url 'account_signup' %}"" class="btn btn-lg bg-slate-400 bd-radius-2 ft-black ft-weight-600">
+                Sign Up
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+            {% endif %}
+          
         </div>
       </div>
     </div>
