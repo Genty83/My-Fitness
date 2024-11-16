@@ -46,6 +46,9 @@ def all_products(request):
     if request.GET.get('items_per_page'):
         items_per_page = request.GET.get('items_per_page')
 
+    items_per_category = get_items_per_category(products)
+    items_per_subcategory = get_items_per_subcategory(products)
+
     products = paginate_products(request, products, items_per_page)
 
     # Get avg rating using the get_average_rating function
@@ -56,8 +59,8 @@ def all_products(request):
         'products':  products,
         'categories': categories,
         'sub_categories': sub_categories,
-        'items_per_category': get_items_per_category(Product.objects.all()),
-        'items_per_subcategory': get_items_per_subcategory(Product.objects.all())
+        'items_per_category': items_per_category,
+        'items_per_subcategory': items_per_subcategory
     }
 
     return render(request, 'products/all_products.html', context)
@@ -240,17 +243,21 @@ def sale_products(request):
     if request.GET.get('items_per_page'):
         items_per_page = request.GET.get('items_per_page')
 
+    items_per_category = get_items_per_category(products)
+    items_per_subcategory = get_items_per_subcategory(products)
+
     products = paginate_products(request, products, items_per_page)
+
+    # Get avg rating using the get_average_rating function
+    for product in products:
+        product.rating = ProductReview.get_average_rating(product)
 
     context = {
         'products':  products,
         'categories': categories,
         'sub_categories': sub_categories,
-        'items_per_category': get_items_per_category(Product.objects.all()),
-        'items_per_subcategory': get_items_per_subcategory(Product.objects.all())
+        'items_per_category': items_per_category,
+        'items_per_subcategory': items_per_subcategory
     }
 
-    context = {
-        'products': products,
-    }
-    return render(request, 'products/sale_products.html', context)
+    return render(request, 'products/all_products.html', context)
