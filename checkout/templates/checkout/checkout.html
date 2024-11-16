@@ -24,7 +24,7 @@
           <legend class="pad-inline-2">Delivery</legend>
           {{ order_form.phone_number }}
           {{ order_form.country }}
-          {{ order_form.postcode }}
+          {{ order_form.town_or_city }}
           {{ order_form.postcode }}
           {{ order_form.street_address1 }}
           {{ order_form.street_address2 }}
@@ -57,7 +57,7 @@
             <i class="fas fa-chevron-left"></i>
             Adjust Bag
           </a>
-          <button class="btn btn-md bg-sky-400 ft-slate-900 bd-radius-1 bd-width-0" type="submit">
+          <button id="submit-button" class="btn btn-md bg-sky-400 ft-slate-900 bd-radius-1 bd-width-0" type="submit">
             <i class="fas fa-lock"></i>
             Complete Order
           </button>

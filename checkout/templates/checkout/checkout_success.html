@@ -2,16 +2,118 @@
 {% load static %}
 
 {% block title %}
-<title>My Fitness - Checkout</title>
+<title>My Fitness - Checkout Success</title>
 {% endblock %}
 
 {% block content %}
-<div class="container width-80 breakpoint-lg margin-auto pad-2">
+<div class="container width-80 breakpoint-lg margin-auto pad-2 flex-col gap-2">
   <h1>Thankyou</h1>
   <hr>
   <p>Your order information is below. A confirmation email has been sent to <strong>{{ order.email }}</strong>.</p>
-  <div class="row gap-2">
-    
+
+  <h4 class="ft-sky-400">Order Summary</h4>
+  <hr>
+
+  <div class="grid bd-solid bd-width-1 bd-radius-1 bd-slate-600 pad-2 gap-2">
+    <h5 class="ft-sky-300">Order Info:</h5>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Order Number: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.order_number}}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Order Date: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.date}}</p>
+    </div>
   </div>
+
+  {% for item in order.lineitems.all %}
+  <div class="grid bd-solid bd-width-1 bd-radius-1 bd-slate-600 pad-2 gap-2">
+    <h5 class="ft-sky-300">Order Details:</h5>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      {% if item.product.image %}
+      <img class="width-fixed-70 height-fixed-70" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+      {% else %}
+      <img class="width-fixed-70 height-fixed-70" src="{{ item.product.image_url}}" alt="{{ item.product.name }}">
+      {% endif %}
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Product: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ item.product.name }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Quantity: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ item.quantity }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Price: </p>
+      <p class="ft-slate-300 ft-size-sm">£{{ item.product.price }}</p>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="grid bd-solid bd-width-1 bd-radius-1 bd-slate-600 pad-2 gap-2">
+    <h5 class="ft-sky-300">Delivering To:</h5>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Full Name: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.full_name }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Address Line 1: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.street_address1 }}</p>
+    </div>
+    {% if order.street_address2 %}
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Address Line 2: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.street_address2 }}</p>
+    </div>
+    {% endif %}
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Town Or City: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.town_or_city }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">County: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.county }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Postcode: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.postcode }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Country: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.country }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Phone Number: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.phone_number }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Email: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.email }}</p>
+    </div>
+  </div>
+
+  <div class="grid bd-solid bd-width-1 bd-radius-1 bd-slate-600 pad-2 gap-2">
+    <h5 class="ft-sky-300">Billing Info:</h5>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Order Total: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.order_total }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Delivery Cost: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.delivery_cost }}</p>
+    </div>
+    <div class="flex-row-wrap gap-1 align-center gap-2">
+      <p class="ft-weight-700">Grand Total: </p>
+      <p class="ft-slate-300 ft-size-sm">{{ order.grand_total }}</p>
+    </div>
+  </div>
+
+  <!-- Button -->
+  <a href="{% url 'all_products' %}" class="btn btn-md bd-sky-400 bd-width-2 bd-solid bd-radius-1 ft-slate-100">
+    <i class="fas fa-shopping-cart"></i>
+    Show Now!
+  </a>
+
 </div>
 {% endblock %}
