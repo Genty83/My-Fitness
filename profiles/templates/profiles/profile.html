@@ -8,6 +8,27 @@
 <div class="container width-80 breakpoint-lg margin-auto pad-2">
   <h1>My Profile</h1>
   <hr>
+
+  <div class="container width-80 breakpoint-lg margin-auto pad-2">
+    <div class="row">
+      <div class="colspan-6 breakpoint-lg">
+        <p class="ft-size-2xl ft-sky-300">Defautlt Delivery Information</p>
+        <form class="grid gap-2" action="{% url 'profile' %}" method="post" id="profile-update-form">
+          {% csrf_token %}
+          {% for field in form %}
+            {{ field }}
+          {% endfor %}
+          <button class="btn btn-md bg-sky-400 ft-slate-900 bd-radius-1 bd-width-0" type="submit">
+            <i class="fas fa-lock"></i>
+            Update Information
+          </button>
+        </form>
+      </div>
+      <div class="colspan-6 breakpoint-lg">
+        
+      </div>
+    </div>
+  </div>
 </div>
 {{ profile }}
 {% endblock %}
