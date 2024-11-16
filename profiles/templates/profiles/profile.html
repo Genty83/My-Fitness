@@ -10,9 +10,9 @@
   <hr>
 
   <div class="container width-80 breakpoint-lg margin-auto pad-2">
-    <div class="row">
-      <div class="colspan-6 breakpoint-lg">
-        <p class="ft-size-2xl ft-sky-300">Defautlt Delivery Information</p>
+    <div class="row gap-2">
+      <div class="col-span-6 breakpoint-lg">
+        <p class="ft-size-2xl ft-sky-300">Default Delivery Information</p>
         <form class="grid gap-2" action="{% url 'profile' %}" method="post" id="profile-update-form">
           {% csrf_token %}
           {% for field in form %}
@@ -24,8 +24,49 @@
           </button>
         </form>
       </div>
-      <div class="colspan-6 breakpoint-lg">
-        
+      <div class="col-span-6 breakpoint-lg">
+        <p class="ft-size-2xl ft-sky-300">Order History</p>
+        <div class="overflow-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Order Number</th>
+                <th>Date</th>
+                <th>Items</th>
+                <th>Order Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in orders %}
+              <tr>
+                <td>
+                  <a href="{% url 'order_history' %} order.order_number"
+                    title="{{ order.order_number|truncatechars:6}}"
+                  >
+                  </a>
+                </td>
+                <td>
+                  {{ order.date }}
+                </td>
+                <td>
+                  <ul>
+                    {% for item in order.lineitems.all %}
+                    <li>
+                      {% if item.product.has_sizes %}
+                        size {{ item.product.size|upper }}{{ item.product.name}} x{{ item.quantity }}
+                      {% endif %}
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </td>
+                <td>
+                  £{{ order.grnd_total }}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

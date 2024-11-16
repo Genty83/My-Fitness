@@ -109,11 +109,17 @@
     </div>
   </div>
 
-  <!-- Button -->
+  <!-- Buttons -->
+  {% if from_profile %}
+  <a href="{% url 'profile' %}" class="btn btn-md bd-sky-400 bd-width-2 bd-solid bd-radius-1 ft-slate-100"></a>
+    <i class="fas fa-angle-left"></i>
+    Back To Profile
+  </a>
+  {% else %}
   <a href="{% url 'all_products' %}" class="btn btn-md bd-sky-400 bd-width-2 bd-solid bd-radius-1 ft-slate-100">
     <i class="fas fa-shopping-cart"></i>
     Show Now!
   </a>
-
+  {% endif %}
 </div>
 {% endblock %}
