@@ -11,7 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def webhook(request):
     """Listen for webhooks from Stripe"""
-    wh_secret = settings.STRIPE_WH_SECRET
+    wh_secret = settings.STRIPE_WH_KEY
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
     payload = request.body
