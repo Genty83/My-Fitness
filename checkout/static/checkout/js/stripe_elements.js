@@ -34,7 +34,7 @@ card.addEventListener('change', (e) => {
 // Handle form submit 
 var form = document.getElementById('payment-form');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', function(e) {
   e.preventDefault();
   card.update({ 'disabled': true });
   $('#submit-button').attr('disabled', true);
@@ -42,8 +42,9 @@ form.addEventListener('submit', (e) => {
     payment_method: {
       card: card,
     }
-  }).then((result) => {
+  }).then(function(result) {
     if (result.error) {
+      var errorDiv = document.getElementById('card-errors');
       var html = `
         <span role="alert">
           <i class="fas fa-times ft-red-400"></i>
