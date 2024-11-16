@@ -10,7 +10,6 @@ def bag_contents(request):
     sub_total = 0
     product_count = 0
     bag = request.session.get('bag', {})
-    print(bag)
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
