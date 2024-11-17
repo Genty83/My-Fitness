@@ -77,6 +77,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'bag.contexts.bag_contents',
+                'home.menu_context.menu',
             ],
             "loaders":[( 
                 "django.template.loaders.cached.Loader", [
