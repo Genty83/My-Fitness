@@ -40,11 +40,11 @@
                 </a>
                 <div class="dropdown-content bg-slate-900">
                   <div class="grid tracks-5 track-size-250 tracks-fixed gap-2 pad-2">
-                    {% for cat in categories %}
+                    {% for cat in menu_categories %}
                         <div class="flex-col gp-2">
                           <h6 class="ft-sky-400">{{ cat.friendly_name }}</h6>
                           <ul class="flex-col gp-2">
-                            {% for subcat in sub_categories %}
+                            {% for subcat in menu_subcategories %}
                               {% if cat.name == subcat.category_id.name %}
                                 <li>
                                   <!-- Filter by sub category -->
@@ -83,10 +83,12 @@
 
           <!-- Button group -->
           <div class="flex-row align-center gap-2">
+            {% if user.is_authenticated %}
             <a href="{% url 'profile' %}" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2">
               <i class="fas fa-user ft-sky-500"></i>
               profile
             </a>
+            {% endif %}
             {% if user.is_authenticated %}
               <a 
                 href="{% url 'account_logout' %}" 
