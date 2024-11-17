@@ -1,16 +1,36 @@
-<div class="toast pad-2 bd-radius-2 bg-slate-800 flex-col justify-center align-center gap-4">
-  <div class="flex-row pad-4">
-    <div class="width-fixed-60 height-fixed-60 bd-radius-full grid justify-center align-center bg-emerald-400">
-      <i class="fas fa-check ft-size-3xl"></i>
+<div class="toast">
+  <div class="toast-header">
+    <div class="toast-icon">
+      <i class="fas fa-check ft-emerald-400"></i>
+    </div>
+    <p class="toast-title ft-emerald-400">Success</p>
+    <div>
+      <i class="toast-close fas fa-times ft-red-hover-400"></i>
     </div>
   </div>
-  <div class="flex-col text-center align-center gap-2">
-    <h6 class="ft-size-3xl ft-emerald-400">Success!</h6>
-    <p class="ft-l">
-      {{ message }}
-    </p>
-    <button class="btn btn-lg bg-emerald-400 bd-width-0 bd-radius-2" type="button">
-      Close
-    </button>
+  <div class="toast-body flex-col gap-2">
+    {{ message }}
+
+    {% if bag_items %}
+      {% for item in bag_items %}
+        <div class="flex-row align-center gap-2">
+          {% if item.product.image == "" %}
+            <img class="width-fixed-40 height-fixed-40" src="{{ item.product.image_url }}" alt="{{ item.product.name }}">
+          {% else %}
+            <img src="{{ item.product.image }}" alt="{{ item.product.name }}">
+          {% endif %}
+          <p class="ft-size-xs">{{ item.product.name }} - {{ item.product.sku }}</p>
+          <p class="ft-size-xs">£{{ item.product.price }}</p>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="toast-footer flex-col">
+    <div class="flex-row toast-banner align-center pad-inline-2">
+      <p class="ft-size-xs">free delivery on orders over £{{ free_delivery_threshold }}!</p>
+    </div>
+    <div class="flex-row align-center pad-inline-2">
+      <p class="ft-size-xs">My Fitness</p>
+    </div>
   </div>
 </div>
