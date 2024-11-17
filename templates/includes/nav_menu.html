@@ -4,13 +4,56 @@ Include this in the base template.
 -->
 
 <aside class="mobile-nav bg-slate-900">
-  <div class="flex-col pad-3">
-    <div class="flex-row align-center justify-between">
-      <p class="ft-size-2xl">menu</p>
-      <button class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0">
-        <i class="menu-btn fas fa-bars"></i>
-      </button>
+  <div class="flex-col justify-between gap-2 pad-3 height-100">
+    <div class="flex-col gap-2">
+      <div class="flex-row align-center justify-between">
+        <p class="ft-size-2xl">menu</p>
+        <button class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0">
+          <i class="menu-btn fas fa-bars"></i>
+        </button>
+      </div>
+      <hr>
+      <form action="{% url 'all_products' %}">
+        <input 
+        class="width-100 bd-width-0 bg-slate-600 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-400 transition-medium" 
+        type="text" name="q" id="q" placeholder="Search..."
+        >
+      </form>
+      <div class="flex-col gap-2">
+        <a class="ft-sky-hover-300" href="{% url 'home' %}">
+          Home
+        </a>
+        <a class="ft-sky-hover-300"  href="{% url 'all_products' %}">
+          All Products
+        </a>
+        <a class="ft-sky-hover-300"  href="{% url 'sale_products' %}">
+          Sale Products
+        </a>
+        <a class="ft-sky-hover-300"  href="{% url 'sale_products' %}">
+          Clearance Items
+        </a>
+      </div>
+      <hr>
     </div>
-    
+    <div class="flex-col gap-2">
+      <hr>
+        <div class="flex-col gap-2">
+          {% if user.is_authenticated %}
+          <a class="ft-sky-hover-300"  href="{% url 'account_logout' %}">
+            Logout
+          </a>
+          <a class="ft-sky-hover-300"  href="{% url 'profile' %}">
+            Profile
+          </a>
+          {% else %}
+          <a class="ft-sky-hover-300"  href="{% url 'account_login' %}">
+            Login
+          </a>
+          <a class="ft-sky-hover-300"  href="{% url 'account_signup' %}">
+            Sign Up
+          </a>
+          {% endif %}
+        </div>
+    </div>
   </div>
 </aside>
