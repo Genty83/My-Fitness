@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Toasts
-  eventHandler('click', '.btn', () => {
+  eventHandler('click', '.toast-close', () => {
     closeToast();
   });
 });
 
-const eventHandler = (type, selectpr, callback, options) => {
+const eventHandler = (type, selector, callback, options) => {
   document.addEventListener(type, (e) => {
-    if (e.target.matches(selectpr)) {
+    if (e.target.matches(selector)) {
       callback(e);
     }
   }, options);
