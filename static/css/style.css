@@ -1360,6 +1360,7 @@ Grid System
   z-index: 99999;
   transition: all 1s ease;
   overflow: hidden;
+  display: grid;
 }
 
 .hero-bg {
