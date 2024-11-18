@@ -3,6 +3,7 @@ Django settings for my_fitness project.
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 import env
 
@@ -116,10 +117,7 @@ WSGI_APPLICATION = 'my_fitness.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('your-database-url-here')
 }
 
 
