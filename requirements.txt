@@ -4,6 +4,7 @@ Django==5.1.2
 django-allauth==65.1.0
 django-countries==7.6.1
 django-viewcomponent==1.0.5
+gunicorn==23.0.0
 pillow==11.0.0
 psycopg2==2.9.10
 python-dotenv==1.0.1
