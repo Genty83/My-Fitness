@@ -18,7 +18,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "DEVELOPMENT" in os.environ
 
-ALLOWED_HOSTS = ["8000-genty83-myfitness-y0n06gwpb2f.ws.codeinstitute-ide.net"]
+ALLOWED_HOSTS = ["local-host"]
 CSRF_TRUSTED_ORIGINS = ['https://8000-genty83-myfitness-y0n06gwpb2f.ws.codeinstitute-ide.net']
 
 
@@ -101,7 +101,7 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 5
 ACCOUNT_USERNAME_REQUIRED = False
