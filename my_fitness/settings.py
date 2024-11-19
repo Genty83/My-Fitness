@@ -19,8 +19,6 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = ["https://my-fitness-7a85d9b108b0.herokuapp.com/", "local-host"]
-CSRF_TRUSTED_ORIGINS = ['https://8000-genty83-myfitness-y0n06gwpb2f.ws.codeinstitute-ide.net']
-
 
 
 # Application definition
@@ -178,8 +176,8 @@ if 'USE_AWS' in os.environ:
 
     AWS_STORAGE_BUCKET_NAME = 'myfitnessstore'
     AWS_S3_REGION_NAME = 'Europe (Stockholm) eu-north-1'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
     # Static and media files
