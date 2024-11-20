@@ -16,9 +16,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "DEVELOPMENT" in os.environ
+DEBUG = False
 
-ALLOWED_HOSTS = ["https://my-fitness-7a85d9b108b0.herokuapp.com/", "local-host"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
