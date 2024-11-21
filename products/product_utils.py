@@ -64,9 +64,11 @@ def filter_products(request, products):
         QuerySet: The filtered queryset of products.
     """
     if request.GET.get('category'):
-        products = products.filter(category_id=request.GET.get('category'))
+        products = products.filter(
+            category_id=request.GET.get('category'))
     if request.GET.get('subcategory'):
-        products = products.filter(subcategory_id=request.GET.get('subcategory'))
+        products = products.filter(
+            subcategory_id=request.GET.get('subcategory'))
     return products
 
 
@@ -106,7 +108,8 @@ def get_items_per_category(products):
     categories = Category.objects.all()
     items_per_category = {}
     for category in categories:
-        items_per_category[category.name] = products.filter(category_id=category).count()
+        items_per_category[category.name] = products.filter(
+            category_id=category).count()
     return items_per_category
 
 
@@ -123,5 +126,6 @@ def get_items_per_subcategory(products):
     subcategories = SubCategory.objects.all()
     items_per_subcategory = {}
     for subcategory in subcategories:
-        items_per_subcategory[subcategory.name] = products.filter(subcategory_id=subcategory).count()
+        items_per_subcategory[subcategory.name] = products.filter(
+            subcategory_id=subcategory).count()
     return items_per_subcategory
