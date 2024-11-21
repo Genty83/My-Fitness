@@ -1364,7 +1364,7 @@ Grid System
 }
 
 .hero-bg {
-  background-image: url('/media/hero-img-1.jpg');
+  background-image: url('media/hero-img-1.jpg');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
