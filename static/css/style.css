@@ -2595,10 +2595,12 @@ Grid System
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 80vh;
   width: 100%;
-  height: 100%;
+  position: relative;
   z-index: 0;
 }
+
 
 .hero-overlay {
   position: absolute;
