@@ -21,8 +21,10 @@ class ProductForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
         sub_categories = SubCategory.objects.all()
-        category_ids = [(int(c.id), c.get_friendly_name()) for c in categories]
-        subcategory_ids = [(int(s.id), s.get_friendly_name()) for s in sub_categories]
+        category_ids = [(
+            int(c.id), c.get_friendly_name()) for c in categories]
+        subcategory_ids = [(
+            int(s.id), s.get_friendly_name()) for s in sub_categories]
 
         classes = [
             'bg-slate-600',
@@ -57,8 +59,10 @@ class UpdateProductForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
         sub_categories = SubCategory.objects.all()
-        category_ids = [(int(c.id), c.get_friendly_name()) for c in categories]
-        subcategory_ids = [(int(s.id), s.get_friendly_name()) for s in sub_categories]
+        category_ids = [(
+            int(c.id), c.get_friendly_name()) for c in categories]
+        subcategory_ids = [(
+            int(s.id), s.get_friendly_name()) for s in sub_categories]
 
         self.fields['category_id'].choices = category_ids
         self.fields['subcategory_id'].choices = subcategory_ids
