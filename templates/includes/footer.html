@@ -69,32 +69,32 @@
         <form action="{% url 'subscribe_to_newsletter' %}" class="flex-row gap-1" method="post">
           {% csrf_token %}
           <input 
-            type="email", name="email", id="email", required,
+            type="email" name="email" id="email" required
             class="bd-width-0 bg-slate-600 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-400 transition-medium"
             placeholder="Enter your email">
-          <button class="btn bg-sky-400 bd-width-0 ft-black bd-radius-2 pad-inline-1">
+          <button type="submit" class="btn bg-sky-400 bd-width-0 ft-black bd-radius-2 pad-inline-1">
             Subscribe
           </button>
         </form>
         <div class="flex-row align-center gap-2">
           <a href="#" 
               class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0" 
-              target="_blank">
+              target="_blank" aria-label="Facebook">
             <i class="fab fa-facebook ft-size-lg"></i>
           </a>
           <a href="#" 
               class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0" 
-              target="_blank">
+              target="_blank" aria-label="Twitter">
             <i class="fab fa-twitter ft-size-lg"></i>
           </a>
           <a href="#" 
               class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0" 
-              target="_blank">
+              target="_blank" aria-label="Instagram">
             <i class="fab fa-instagram ft-size-lg"></i>
           </a>
           <a href="#" 
               class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0" 
-              target="_blank">
+              target="_blank" aria-label="YouTube">
             <i class="fab fa-youtube ft-size-lg"></i>
           </a>
         </div>
@@ -112,9 +112,7 @@
       <div class="flex-row align-center justify-center gap-1">
         <p class="ft-light-2 ft-size-sm">
           Website created by 
-          <p class="ft-sky-300">
-            Craig Gent
-          </p>
+          <span class="ft-sky-300">Craig Gent</span>
         </p>
       </div>
     </div>

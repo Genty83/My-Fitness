@@ -1,8 +1,3 @@
-<!-- 
-This template contains the markup for the mobile nav menu.
-Include this in the base template.
--->
-
 <aside class="mobile-nav bg-slate-900">
   <div class="flex-col justify-between gap-2 pad-3 height-100">
     <div class="flex-col gap-2">
@@ -15,18 +10,18 @@ Include this in the base template.
       <hr>
       <form action="{% url 'all_products' %}">
         <input 
-        class="width-100 bd-width-0 bg-slate-600 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-400 transition-medium" 
-        type="text" name="q" id="q" placeholder="Search..."
+          class="width-100 bd-width-0 bg-slate-600 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-400 transition-medium" 
+          type="text" name="q" id="q" placeholder="Search..."
         >
       </form>
       <div class="flex-col gap-2">
         <a class="ft-sky-hover-300" href="{% url 'home' %}">
           Home
         </a>
-        <a class="ft-sky-hover-300"  href="{% url 'all_products' %}">
+        <a class="ft-sky-hover-300" href="{% url 'all_products' %}">
           All Products
         </a>
-        <a class="ft-sky-hover-300"  href="{% url 'sale_products' %}">
+        <a class="ft-sky-hover-300" href="{% url 'sale_products' %}">
           Sale Products
         </a>
       </div>
@@ -34,23 +29,23 @@ Include this in the base template.
     </div>
     <div class="flex-col gap-2">
       <hr>
-        <div class="flex-col gap-2">
-          {% if user.is_authenticated %}
-          <a class="ft-sky-hover-300"  href="{% url 'account_logout' %}">
+      <div class="flex-col gap-2">
+        {% if user.is_authenticated %}
+          <a class="ft-sky-hover-300" href="{% url 'account_logout' %}">
             Logout
           </a>
-          <a class="ft-sky-hover-300"  href="{% url 'profile' %}">
+          <a class="ft-sky-hover-300" href="{% url 'profile' %}">
             Profile
           </a>
-          {% else %}
-          <a class="ft-sky-hover-300"  href="{% url 'account_login' %}">
+        {% else %}
+          <a class="ft-sky-hover-300" href="{% url 'account_login' %}">
             Login
           </a>
-          <a class="ft-sky-hover-300"  href="{% url 'account_signup' %}">
+          <a class="ft-sky-hover-300" href="{% url 'account_signup' %}">
             Sign Up
           </a>
-          {% endif %}
-        </div>
+        {% endif %}
+      </div>
     </div>
   </div>
 </aside>
