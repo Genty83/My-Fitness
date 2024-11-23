@@ -20,18 +20,25 @@
     </p>
     <div class="flex-row gap-2">
       {% if user.is_superuser %}
-        <a href="{% url 'edit_product' product.id %}" class="btn pad-2 bg-slate-500 bd-radius-2 bd-width-0" title="Edit Product" aria-label="Edit Product">
+        <a href="{% url 'edit_product' product.id %}" 
+          class="btn pad-2 bg-slate-500 bd-radius-2 bd-width-0" 
+          title="Edit Product" 
+          aria-label="Edit Product">
           <i class="fas fa-edit" aria-hidden="true"></i>
         </a>
-        <a href="{% url 'delete_product' product.id %}" class="btn pad-2 bg-slate-500 bd-radius-2 bd-width-0" title="Delete Product" aria-label="Delete Product">
+        <a href="{% url 'delete_product' product.id %}" 
+          class="btn pad-2 bg-slate-500 bd-radius-2 bd-width-0" 
+          title="Delete Product" 
+          aria-label="Delete Product">
           <i class="fas fa-trash-alt" aria-hidden="true"></i>
         </a>
       {% endif %}
       <form class="flex-row gap-1" action="{% url 'add_to_bag' product.id %}" method="post">
         {% csrf_token %}
         <label for="quantity-{{ product.id }}" class="sr-only">Quantity</label>
-        <input id="quantity-{{ product.id }}" class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
-              type="number" name="quantity" value="1" min="1" max="99" aria-label="Quantity">
+        <input id="quantity-{{ product.id }}" 
+          class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
+              type="number" name="quantity" value="1" min="1" max="5" aria-label="Quantity">
         <button type="submit" class="btn pad-2 bg-slate-500 bd-radius-2 bd-width-0" aria-label="Add to cart">
           <i class="fas fa-shopping-cart" aria-hidden="true"></i>
         </button>
@@ -39,7 +46,9 @@
       </form>
     </div>
   </div>
-  <a href="{% url 'product_detail' product.id %}" class="btn btn-md bg-sky-500 bd-radius-2 width-100" aria-label="View Product">
+  <a href="{% url 'product_detail' product.id %}" 
+    class="btn btn-md bg-sky-500 bd-radius-2 width-100" 
+    aria-label="View Product">
     View Product
   </a>
 </div>
