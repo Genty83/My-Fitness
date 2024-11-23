@@ -3,11 +3,19 @@ from django.contrib import messages
 
 from .models import UserProfile
 from .forms import UserProfileForm
-
 from checkout.models import Order
 
+
 def profile(request):
-    """ Display the user's profile. """
+    """
+    Display the user's profile.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: The HTTP response with the rendered profile page.
+    """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -30,6 +38,16 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """
+    Display the order history.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        order_number (str): The order number to fetch.
+
+    Returns:
+        HttpResponse: The HTTP response with the rendered order history page.
+    """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (

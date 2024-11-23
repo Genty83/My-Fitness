@@ -1,16 +1,31 @@
 from django import forms
 from .models import UserProfile
 
-
 class UserProfileForm(forms.ModelForm):
+    """
+    Form for updating user profile information.
+
+    Attributes:
+        Meta: Defines model and fields to exclude.
+        __init__: Initializes form, adds placeholders and classes,
+                    removes auto-generated labels, and sets autofocus
+                    on the first field.
+        """
+
     class Meta:
         model = UserProfile
         exclude = ('user',)
-        
+
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated labels
-        and set autofocus on first field
+        Initialize the form.
+
+        Adds placeholders and CSS classes to the fields, removes 
+        auto-generated labels, and sets autofocus on the first field.
+
+        Args:
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
         """
         super().__init__(*args, **kwargs)
         placeholders = {
@@ -33,7 +48,7 @@ class UserProfileForm(forms.ModelForm):
             'ft-serif',
             'pad-inline-1'
         ]
-        
+
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:
