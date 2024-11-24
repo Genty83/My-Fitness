@@ -48,10 +48,10 @@
     <div class="col-span-9 breakpoint-lg pad-2">
       <!-- Show items per page -->
       <div class="flex-row-wrap justify-between align-center gap-2">
-        <p class="ft-weightt-600">
+        <p class="ft-weight-600">
           Showing {{ products.start_index }} - {{ products.end_index }} of {{ products.paginator.count }} items
         </p>
-        <form class="paginate-select-form" action="{% url 'all_products' %}" method="get">
+        <form class="paginate-select-form" action="{% url 'sale_products' %}" method="get">
           <label class="ft-weightt-600" for="items_per_page">Items per page:</label>
           <select name="items_per_page" id="items_per_page" class="bg-slate-600 bd-radius-2 bd-width-0" onchange="this.form.submit()" aria-controls="product-list" aria-label="Items per page">
             <option value="6" {% if request.GET.items_per_page == '6' %} selected {% endif %}>6</option>
