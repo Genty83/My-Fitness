@@ -65,7 +65,7 @@
                   Shop Deals
                 </a>
               </li>
-              {% if subscribed_user %}
+              {% if user.is_superuser or subscribed_user %}
                 <li class="transition-medium ft-sky-hover-400">
                   <a href="{% url 'newsletter' %}">
                     Newsletter
