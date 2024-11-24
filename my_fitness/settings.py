@@ -1,6 +1,7 @@
 import os
 import dj_database_url
-
+if os.path.isfile('env.py'): 
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -15,6 +16,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ["my-fitness-7a85d9b108b0.herokuapp.com", "8000-genty83-myfitness-y0n06gwpb2f.ws.codeinstitute-ide.net"]
+CSRF_TRUSTED_ORIGINS = [os.environ.get('CSRF_TRUSTED_ORIGINS')]
+
 
 # Application definition
 INSTALLED_APPS = [
