@@ -1,16 +1,13 @@
 /**
  * @fileoverview This is the main entry file for the JavaScript used in this project.
+ * It handles events for sidebar toggling, toast notifications, and product menu display.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Sidebar
-  eventHandler('click', '.menu-btn', toggleSideMenu);
-
-  // Toasts
-  eventHandler('click', '.toast-close', closeToast);
-
-  // Products menu
-  eventHandler('click', '.filter-btn', toggleProductsMenu);
+  // Attach event listeners for various UI interactions
+  eventHandler('click', '.menu-btn', toggleSideMenu); // Sidebar toggle
+  eventHandler('click', '.toast-close', closeToast);  // Close toast notifications
+  eventHandler('click', '.filter-btn', toggleProductsMenu); // Toggle product filter menu
 });
 
 /**
@@ -35,6 +32,7 @@ const eventHandler = (type, selector, callback, options) => {
 const toggleSideMenu = () => {
   const sidebar = document.querySelector('.mobile-nav');
   if (sidebar) {
+    // Toggle sidebar width between 280px and 0px
     sidebar.style.width = sidebar.getBoundingClientRect().width === 0 ? '280px' : '0px';
   } else {
     console.error('Sidebar element not found');
@@ -47,18 +45,23 @@ const toggleSideMenu = () => {
 const closeToast = () => {
   const toast = document.querySelector('.toast');
   if (toast) {
+    // Hide toast notification
     toast.style.display = 'none';
   } else {
     console.error('Toast element not found');
   }
 };
 
+/**
+ * Toggles the height of the products menu.
+ * If the menu is currently hidden, it will be shown; otherwise, it will be hidden.
+ */
 const toggleProductsMenu = () => {
   const productsMenu = document.querySelector('.products-mobile-menu');
-
-  if (productsMenu.getBoundingClientRect().height == 0) {
-    productsMenu.style.height = '450px';
+  if (productsMenu) {
+    // Toggle products menu height between 450px and 0px
+    productsMenu.style.height = productsMenu.getBoundingClientRect().height === 0 ? '450px' : '0px';
   } else {
-    productsMenu.style.height = '0px';
+    console.error('Products menu element not found');
   }
-}
+};

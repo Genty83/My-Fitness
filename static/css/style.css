@@ -2807,6 +2807,6 @@ select:invalid {
   position: absolute;
   left: 0;
   top: 0;
-  transition: 1s;
+  transition: all 1s ease;
   z-index: 9999;
 }
