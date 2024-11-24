@@ -10,7 +10,7 @@ class Newsletters(models.Model):
     date_published = models.DateTimeField(null=True, blank=True)
     date_updated = models.DateTimeField(auto_now=True)
     # The image field is used to store the image of the newsletter. upload to media folder
-    image = models.ImageField(upload_to='media/newsletter/', null=True, blank=True)
+    image = models.ImageField(upload_to='newsletter/', null=True, blank=True)
     image_url = models.URLField(null=True, blank=True)
     
     def __str__(self):

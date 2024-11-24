@@ -16,7 +16,7 @@ def subscribe_to_newsletter(request):
 
 
 def newsletter(request):
-    newsletters = Newsletters.objects.filter(is_published=True)
+    newsletters = Newsletters.objects.all()
     template = 'newsletter/newsletter.html'
     context = {
         'newsletters': newsletters
