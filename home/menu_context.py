@@ -9,10 +9,11 @@ def menu(request):
     
 
     if request.user.is_authenticated:
-        subscribed_user = SubscribeToNewsletter.objects.filter(
-            email=request.user.email).exists()
+        if SubscribeToNewsletter.objects.filter(
+                email=request.user.email).exists():
+            subscribed_user = True
     else:
-        subscribed_user = None
+        subscribed_user = False
     
     context = {
         'menu_categories': categories,
