@@ -13,111 +13,73 @@
 </div>
 
 <div class="container width-80 breakpoint-lg margin-auto pad-2 flex-col gap-2">
-  {% if bag_items %}
-    <div class="overflow-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th class="bg-slate-800">Product Info</th>
-            <th class="bg-slate-800"></th>
-            <th class="bg-slate-800">Price</th>
-            <th class="bg-slate-800">Discount Price</th>
-            <th class="bg-slate-800">Qty</th>
-            <th class="bg-slate-800">Sub Total</th>
-            <th class="bg-slate-800">Adjust Bag</th>
-            <th class="bg-slate-800">Remove</th>
-          </tr>
-        </thead>
 
-        {% for item in bag_items %}
-          <tr>
-            <td>
-              {% if item.product.image == "" %}
-                <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}">
-              {% else %}
-                <img src="{{ item.product.image }}" alt="{{ item.product.name }}">
-              {% endif %}
-            </td>
-            <td>
-              <p>{{ item.product.name }} - {{ item.product.sku }}</p>
-            </td>
-            {% if item.product.discount_price == None %}
-              <td>
-                <p>£{{ item.product.price }}</p>
-              </td>
-            {% else %}
-              <td>
-                <p class="ft-red-400 text-strike">£{{ item.product.price }}</p>
-              </td>
-            {% endif %}
-            {% if item.product.discount_price == None %}
-              <td>
-                <p>-</p>
-              </td>
-            {% else %}
-              <td>
-                <p class="ft-emerald-400">£{{ item.product.discount_price }}</p>
-              </td>
-            {% endif %}
-            <td>
-              <p>{{ item.quantity }}</p>
-            </td>
-            <td>
-              <p>£{{ item.sub_total }}</p>
-            </td>
-            <!-- Adjust bag -->
-            <td>
-              <form action="{% url 'adjust_bag' item.product.id %}" method="POST">
-                {% csrf_token %}
-                <div class="flex-row gap-1">
-                  <input type="hidden" name="product_id" value="{{ item.product.id }}">
-                  <input type="hidden" name="quantity" value="{{ item.quantity }}">
-                  <input 
-                    class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
-                    type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99">
-                  <button type="submit" class="btn btn-md bg-sky-400 bd-width-0 bd-radius-1 ft-slate-900">Adjust</button>
-                </div>
-              </form>
-            </td>
-            <!-- Remove from bag -->
-            <td>
-              <form action="{% url 'remove_from_bag' item.product.id %}" method="POST">
-                {% csrf_token %}
-                <input 
-                  class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
-                  type="hidden" name="product_id" value="{{ item.item_id }}">
-                <button type="submit" class="btn btn-md bg-sky-400 bd-width-0 bd-radius-1 ft-slate-900">Remove</button>
-              </form>
-            </td>
-        {% endfor %}
-      </table>
-    </div>
+  {% if bag_items %}
+    {% for item in bag_items %}
+      <div class="flex-row-wrap justify-between gap-2 bg-slate-600 pad-2 bd-radius-2">
+        <div class="flex-col gap-2">
+          {% if item.product.image == "" %}
+          <img class="bag-img" src="{{ item.product.image_url }}" alt="{{ item.product.name }}">
+        {% else %}
+          <img class="bag-img" src="{{ item.product.image }}" alt="{{ item.product.name }}">
+        {% endif %}
+        <form action="{% url 'adjust_bag' item.product.id %}" method="POST" onchange="this.submit()">
+          {% csrf_token %}
+          <div class="flex-row gap-1">
+            <input type="hidden" name="product_id" value="{{ item.product.id }}">
+            <input type="hidden" name="quantity" value="{{ item.quantity }}">
+            <input 
+              class="bg-slate-500 bd-width-0 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-300 transition-slow" 
+              type="number" name="quantity" value="{{ item.quantity }}" min="1" max="5">
+          </div>
+        </form>
+        </div>
+        <div class="flex-col gap-2">
+          <p>{{ item.product.name }}</p>
+          <p class="ft-size-xs ft-slate-400">{{ item.product.sku }}</p>
+        </div>
+        <div class="flex-col gap-2">
+          <a href="{% url 'remove_from_bag' item.product.id %}" class="btn btn-md bg-sky-400 bd-radius-1">
+            Remove
+          </a>
+          {% if item.product.discount_price == None %}
+            <p>-</p>
+            <p class="ft-size-sm">£{{ item.product.price }}</p>
+          {% else %}
+            <p class="ft-size-sm ft-emerald-400">£{{ item.product.discount_price }}</p>
+            <p class="ft-red-400 ft-size-sm">£{{ item.product.price }}</p>
+          {% endif %}
+          <p class="ft-size-xl">£{{ item.sub_total }}</p>
+        </div>
+      </div>
+    {% endfor %}
   {% else %}
     <p class="ft-size-3xl">Your Bag is empty!</p>
   {% endif %}
+
   {% if bag_items %}
-  <div class="flex-row-wrap align-end gap-2">
-    <div class="flex-col gap-2">
-      <p class="ft-slate-300"><strong>Bag Total: £{{ total|floatformat:2 }}</strong></p>
-      <p class="ft-slate-300">Delivery Cost: £{{ delivery|floatformat:2 }}</p>
-      <p class="ft-size-lg">Grand Total: £{{ grand_total|floatformat:2 }}</p>
+    <div class="flex-row-wrap align-end gap-2">
+      <div class="flex-col gap-2">
+        <p class="ft-slate-300"><strong>Bag Total: £{{ total|floatformat:2 }}</strong></p>
+        <p class="ft-slate-300">Delivery Cost: £{{ delivery|floatformat:2 }}</p>
+        <p class="ft-size-lg">Grand Total: £{{ grand_total|floatformat:2 }}</p>
+      </div>
+      <div class="flex-row-wrap gap-2">
+        <a href="{% url 'all_products' %}" class="btn btn-md bd-sky-400 bd-width-2 bd-solid bd-radius-1 ft-slate-100">
+          <i class="fas fa-shopping-cart"></i>
+          Continue Shopping
+        </a>
+        <a href="{% url 'checkout' %}" class="btn btn-md bg-sky-400 bd-radius-1 ft-slate-900">
+          <i class="fas fa-lock"></i>
+          Secure Checkout
+        </a>
+      </div>
     </div>
-    <div class="flex-row-wrap gap-2">
-      <a href="{% url 'all_products' %}" class="btn btn-md bd-sky-400 bd-width-2 bd-solid bd-radius-1 ft-slate-100">
-        <i class="fas fa-shopping-cart"></i>
-        Continue Shopping
-      </a>
-      <a href="{% url 'checkout' %}" class="btn btn-md bg-sky-400 bd-radius-1 ft-slate-900">
-        <i class="fas fa-lock"></i>
-        Secure Checkout
-      </a>
-    </div>
-  </div>
-  {% else %}
-  <a href="{% url 'all_products' %}" class="btn btn-md bd-sky-400 bd-width-2 bd-solid bd-radius-1 ft-slate-100">
-    <i class="fas fa-shopping-cart"></i>
-    Show Now!
-  </a>
+    {% else %}
+    <a href="{% url 'all_products' %}" class="btn btn-md bd-sky-400 bd-width-2 bd-solid bd-radius-1 ft-slate-100">
+      <i class="fas fa-shopping-cart"></i>
+      Show Now!
+    </a>
   {% endif %}
 </div>
 {% endblock %}

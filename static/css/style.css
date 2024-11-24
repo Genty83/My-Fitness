@@ -2624,6 +2624,7 @@ Grid System
 /* Toast styling */
 .toast {
   max-width: 300px;
+  min-width: 250px;
   height: 400px;
   border: 1px solid var(--slate-600);
   background-color: var(--slate-800);
@@ -2809,4 +2810,9 @@ select:invalid {
   top: 0;
   transition: all 1s ease;
   z-index: 9999;
+}
+
+.bag-img {
+  max-width: 130px;
+  max-height: 130px;
 }
