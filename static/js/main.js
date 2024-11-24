@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Toasts
   eventHandler('click', '.toast-close', closeToast);
+
+  // Products menu
+  eventHandler('click', '.filter-btn', toggleProductsMenu);
 });
 
 /**
@@ -49,3 +52,13 @@ const closeToast = () => {
     console.error('Toast element not found');
   }
 };
+
+const toggleProductsMenu = () => {
+  const productsMenu = document.querySelector('.products-mobile-menu');
+
+  if (productsMenu.getBoundingClientRect().height == 0) {
+    productsMenu.style.height = '450px';
+  } else {
+    productsMenu.style.height = '0px';
+  }
+}

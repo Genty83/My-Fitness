@@ -11,7 +11,6 @@ def menu(request):
     if request.user.is_authenticated:
         subscribed_user = SubscribeToNewsletter.objects.filter(
             email=request.user.email).exists()
-        print(subscribed_user)
     else:
         subscribed_user = None
     

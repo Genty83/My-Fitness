@@ -1,0 +1,33 @@
+<div class="products-mobile-menu grid">
+  <div class="flex-col pad-2 gap-2 overflow-y-scroll">
+    <h6>Sort by Price</h6>
+    <a href="?sort=price_asc" class="ft-sky-hover-300" aria-label="Sort by price, low to high">Low to High</a>
+    <a href="?sort=price_desc" class="ft-sky-hover-300" aria-label="Sort by price, high to low">High to Low</a>
+    <hr>
+    <h6>Sort by Name</h6>
+    <a href="?sort=name_asc" class="ft-sky-hover-300" aria-label="Sort by name, A to Z">Sort A-Z</a>
+    <a href="?sort=name_desc" class="ft-sky-hover-300" aria-label="Sort by name, Z to A">Sort Z-A</a>
+    <hr>
+    <h6>Filter by Category</h6>
+    <ul class="flex-col gap-2">
+      {% for cat in categories %}
+      <li>
+        <a href="?category={{ cat.id }}" class="ft-sky-hover-300" aria-label="Filter by category: {{ cat.friendly_name }}">
+          {{ cat.friendly_name }} - ({{ items_per_category|get_item:cat.name }})
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <hr>
+    <h6>Filter by Sub Category</h6>
+    <ul class="flex-col gap-2">
+      {% for sub_cat in sub_categories %}
+      <li>
+        <a href="?subcategory={{ sub_cat.id }}" class="ft-sky-hover-300" aria-label="Filter by subcategory: {{ sub_cat.friendly_name }}">
+          {{ sub_cat.friendly_name }} - ({{ items_per_subcategory|get_item:sub_cat.name }})
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -2576,7 +2576,12 @@ Grid System
   }
 }
 
-/**/
+/* Main Styling */
+
+/* Positioning */
+.pos-relative {
+  position: relative;
+}
 
 .mobile-nav {
   position: fixed;
@@ -2687,7 +2692,7 @@ Grid System
   border-top: 1px solid #52525b;
   display: flex;
   background-color: #27272a;
-  min-height: 30px;
+  min-height: 40px;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
@@ -2791,4 +2796,17 @@ td img {
 select option[value=""],
 select:invalid {
   color: var(--slate-400);
+}
+
+/* Products mobile menu */
+.products-mobile-menu {
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+  background-color: var(--slate-900);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 1s;
+  z-index: 9999;
 }

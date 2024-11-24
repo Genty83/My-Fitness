@@ -5,8 +5,16 @@
 <title>My Fitness - Sale Products</title>
 {% endblock %}
 
+{% block menu %}
+<button class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0" aria-label="Filter">
+  <i class="filter-btn fas fa-filter" aria-hidden="true"></i>
+</button>
+{% endblock %}
+
 {% block content %}
-<div class="container grid breakpoint-lg width-80 margin-auto pad-5">
+<div class="container grid breakpoint-lg width-80 margin-auto pad-5 pos-relative">
+  <!-- Product mobile menu -->
+  {% include 'includes/products-mobile-menu.html' %}
   <!-- Page header content -->
   <div class="flex-row align-center justify-between">
     <h1>Sale Products</h1>
@@ -20,7 +28,7 @@
   <hr>
   <!-- Page layout -->
   <div class="row">
-    <div class="col-span-3 breakpoint-lg">
+    <div class="content hide-breakpoint-0 show-breakpoint-lg">
       {% include 'includes/products_menu.html' %}
     </div>
 

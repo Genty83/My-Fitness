@@ -1,5 +1,9 @@
 <div class="card bg-slate-600 bd-radius-2 pad-1 flex-col gap-2 justify-between">
-  <img src="{{ product.image_url }}" alt="{{ product.name }}" class="card-img">
+  {% if product.image %}
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img">
+  {% else %}
+    <img src="{{ product.image_url }}" alt="{{ product.name }}" class="card-img">
+  {% endif %}
   <div class="card-body flex-col gap-2 justify-between">
     <h6 class="ft-sky-400">{{ product.name }}</h6>
     {% if product.discount_price %}
