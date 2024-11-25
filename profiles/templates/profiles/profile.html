@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 <title>My Fitness - Profile</title>
@@ -24,49 +25,33 @@
           </button>
         </form>
       </div>
-      <div class="col-span-6 breakpoint-lg">
-        <p class="ft-size-2xl ft-sky-300">Order History</p>
-        <div class="overflow-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Order Number</th>
-                <th>Date</th>
-                <th>Items</th>
-                <th>Order Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for order in orders %}
-              <tr>
-                <td>
-                  <a href="{% url 'order_history' order.order_number %}"
-                    title="{{ order.order_number}}">
-                    {{ order.order_number|truncatechars:6 }}
-                  </a>
-                </td>
-                <td>
-                  {{ order.date }}
-                </td>
-                <td>
-                  <ul>
-                    {% for item in order.lineitems.all %}
-                    <li>
-                      {% if item.product.has_sizes %}
-                          Size {{ item.product.size|upper }}
-                      {% endif %}{{ item.product.name }} x{{ item.quantity }}
-                    </li>
-                    {% endfor %}
-                  </ul>
-                </td>
-                <td>
-                  <td>£{{ order.grand_total }}</td>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
+      <div class="col-span-6 breakpoint-lg" role="region" aria-labelledby="order-history-header">
+        <p id="order-history-header" class="ft-size-2xl ft-sky-300">Order History</p>
+        <!-- Add detail -->
+        {% for order in orders %}
+          <div class="flex-row-wrap justify-between gap-2" role="article" aria-labelledby="order-{{ order.order_number }}">
+            <div class="flex-col gap-2">
+              <a class="ft-size-sm ft-slate-300 ft-sky-hover-400" href="{% url 'order_history' order.order_number %}" 
+                title="{{ order.order_number}}" aria-describedby="order-items-{{ order.order_number }}">
+                {{ order.order_number|truncatechars:6 }}
+              </a>
+              <div id="order-items-{{ order.order_number }}">
+                {% for item in order.lineitems.all %}
+                  <p>
+                    {% if item.product.has_sizes %}
+                      Size {{ item.product.size|upper }}
+                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                  </p>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="flex-col gap-2">
+              <p class="ft-size-sm ft-slate-300">{{ order.date }}</p>
+              <p class="ft-sky-400 ft-size-lg">£{{ order.grand_total }}</p>
+            </div>
+          </div>
+          <hr>
+        {% endfor %}
       </div>
     </div>
   </div>

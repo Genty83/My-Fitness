@@ -11,9 +11,15 @@
   <ul class="flex-col gap-2">
     {% for cat in categories %}
     <li>
-      <a href="?category={{ cat.id }}" class="ft-sky-hover-300" aria-label="Filter by category: {{ cat.friendly_name }}">
-        {{ cat.friendly_name }} - ({{ items_per_category|get_item:cat.name }})
-      </a>
+      {% if items_per_category|get_item:cat.name == 0 %}
+        <a class="ft-sky-hover-300 ft-slate-400" aria-label="Filter by category: {{ cat.friendly_name }}" style="pointer-events: none;">
+          {{ cat.friendly_name }} - (0)
+        </a>
+      {% else %}
+        <a href="?category={{ cat.id }}" class="ft-sky-hover-300" aria-label="Filter by category: {{ cat.friendly_name }}">
+          {{ cat.friendly_name }} - ({{ items_per_category|get_item:cat.name }})
+        </a>
+      {% endif %}
     </li>
     {% endfor %}
   </ul>
@@ -22,9 +28,15 @@
   <ul class="flex-col gap-2">
     {% for sub_cat in sub_categories %}
     <li>
-      <a href="?subcategory={{ sub_cat.id }}" class="ft-sky-hover-300" aria-label="Filter by subcategory: {{ sub_cat.friendly_name }}">
-        {{ sub_cat.friendly_name }} - ({{ items_per_subcategory|get_item:sub_cat.name }})
-      </a>
+      {% if items_per_subcategory|get_item:sub_cat.name == 0 %}
+        <a class="ft-sky-hover-300 ft-slate-400" aria-label="Filter by subcategory: {{ sub_cat.friendly_name }}" style="pointer-events: none;">
+          {{ sub_cat.friendly_name }} - (0)
+        </a>
+      {% else %}
+        <a href="?subcategory={{ sub_cat.id }}" class="ft-sky-hover-300" aria-label="Filter by subcategory: {{ sub_cat.friendly_name }}">
+          {{ sub_cat.friendly_name }} - ({{ items_per_subcategory|get_item:sub_cat.name }})
+        </a>
+      {% endif %}
     </li>
     {% endfor %}
   </ul>

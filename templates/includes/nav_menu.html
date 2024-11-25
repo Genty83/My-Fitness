@@ -1,15 +1,16 @@
-<aside class="mobile-nav bg-slate-900">
+<aside class="mobile-nav bg-slate-900" aria-label="Mobile Navigation">
   <div class="flex-col justify-between gap-2 pad-3 height-100">
     <div class="flex-col gap-2">
       <div class="flex-row align-center justify-between">
-        <p class="ft-size-2xl">menu</p>
-        <button class="menu-btn btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0">
+        <p class="ft-size-2xl">Menu</p>
+        <button aria-expanded="false" aria-label="Toggle Menu" class="menu-btn btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0">
           <i class="menu-btn fas fa-bars ft-slate-50"></i>
         </button>
       </div>
       <hr>
       <form action="{% url 'all_products' %}">
         <input 
+          aria-label="Search Products"
           class="width-100 bd-width-0 bg-slate-600 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-400 transition-medium" 
           type="text" name="q" id="q" placeholder="Search..."
         >
@@ -24,6 +25,11 @@
         <a class="ft-sky-hover-300" href="{% url 'sale_products' %}">
           Sale Products
         </a>
+        {% if user.is_superuser or subscribed_user %}
+          <a class="ft-sky-hover-300" href="{% url 'newsletter' %}">
+            Newsletter
+          </a>
+        {% endif %}
       </div>
       <hr>
     </div>
