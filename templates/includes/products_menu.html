@@ -1,41 +1,53 @@
 <div class="flex-col pad-2 gap-2 height-50 overflow-y-scroll">
-  <h6>Sort by Price</h6>
-  <a href="?sort=price_asc" class="ft-sky-hover-300" aria-label="Sort by price, low to high">Low to High</a>
-  <a href="?sort=price_desc" class="ft-sky-hover-300" aria-label="Sort by price, high to low">High to Low</a>
+  <p class="ft-size-2xl ft-sky-300">Sort by Price</p>
+  <a href="{% url 'all_products' %}?sort=price_asc" class="ft-sky-hover-300" aria-label="Sort by price, low to high">Low
+    to High</a>
+  <a href="{% url 'all_products' %}?sort=price_desc" class="ft-sky-hover-300"
+    aria-label="Sort by price, high to low">High to Low</a>
   <hr>
-  <h6>Sort by Name</h6>
-  <a href="?sort=name_asc" class="ft-sky-hover-300" aria-label="Sort by name, A to Z">Sort A-Z</a>
-  <a href="?sort=name_desc" class="ft-sky-hover-300" aria-label="Sort by name, Z to A">Sort Z-A</a>
+  <p class="ft-size-2xl ft-sky-300">Sort by Name</p>
+  <a href="{% url 'all_products' %}?sort=name_asc" class="ft-sky-hover-300" aria-label="Sort by name, A to Z">Sort
+    A-Z</a>
+  <a href="{% url 'all_products' %}?sort=name_desc" class="ft-sky-hover-300" aria-label="Sort by name, Z to A">Sort
+    Z-A</a>
   <hr>
-  <h6>Filter by Category</h6>
+  <p class="ft-size-2xl ft-sky-300">Filter by Category</p>
   <ul class="flex-col gap-2">
     {% for cat in categories %}
     <li>
       {% if items_per_category|get_item:cat.name == 0 %}
-        <a class="ft-sky-hover-300 ft-slate-400" aria-label="Filter by category: {{ cat.friendly_name }}" style="pointer-events: none;">
-          {{ cat.friendly_name }} - (0)
-        </a>
+      <a href="{% url 'all_products' %}?category={{ cat.id }}" class="ft-sky-hover-300 ft-slate-400"
+        aria-label="Filter by category: {{ cat.friendly_name }}" style="pointer-events: none;">
+        {{ cat.friendly_name }}
+        <span> - (0)</span>
+      </a>
       {% else %}
-        <a href="?category={{ cat.id }}" class="ft-sky-hover-300" aria-label="Filter by category: {{ cat.friendly_name }}">
-          {{ cat.friendly_name }} - ({{ items_per_category|get_item:cat.name }})
-        </a>
+      <a href="{% url 'all_products' %}?category={{ cat.id }}" class="ft-sky-hover-300"
+        aria-label="Filter by category: {{ cat.friendly_name }}">
+        {{ cat.friendly_name }}
+        <span> - ({{ items_per_category|get_item:cat.name }})</span>
+      </a>
       {% endif %}
     </li>
     {% endfor %}
   </ul>
   <hr>
-  <h6>Filter by Sub Category</h6>
+  <p class="ft-size-2xl ft-sky-300">Filter by Sub Category</p>
   <ul class="flex-col gap-2">
     {% for sub_cat in sub_categories %}
     <li>
       {% if items_per_subcategory|get_item:sub_cat.name == 0 %}
-        <a class="ft-sky-hover-300 ft-slate-400" aria-label="Filter by subcategory: {{ sub_cat.friendly_name }}" style="pointer-events: none;">
-          {{ sub_cat.friendly_name }} - (0)
-        </a>
+      <a href="{% url 'all_products' %}?subcategory={{ sub_cat.id }}" class="ft-sky-hover-300 ft-slate-300"
+        aria-label="Filter by subcategory: {{ sub_cat.friendly_name }}" style="pointer-events: none;">
+        {{ sub_cat.friendly_name }}
+        <span> - (0)</span>
+      </a>
       {% else %}
-        <a href="?subcategory={{ sub_cat.id }}" class="ft-sky-hover-300" aria-label="Filter by subcategory: {{ sub_cat.friendly_name }}">
-          {{ sub_cat.friendly_name }} - ({{ items_per_subcategory|get_item:sub_cat.name }})
-        </a>
+      <a href="{% url 'all_products' %}?subcategory={{ sub_cat.id }}" class="ft-sky-hover-300"
+        aria-label="Filter by subcategory: {{ sub_cat.friendly_name }}">
+        {{ sub_cat.friendly_name }}
+        <span> - ({{ items_per_subcategory|get_item:sub_cat.name }})</span>
+      </a>
       {% endif %}
     </li>
     {% endfor %}

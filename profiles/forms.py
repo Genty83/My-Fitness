@@ -1,6 +1,7 @@
 from django import forms
 from .models import UserProfile
 
+
 class UserProfileForm(forms.ModelForm):
     """
     Form for updating user profile information.
@@ -8,9 +9,9 @@ class UserProfileForm(forms.ModelForm):
     Attributes:
         Meta: Defines model and fields to exclude.
         __init__: Initializes form, adds placeholders and classes,
-                    removes auto-generated labels, and sets autofocus
-                    on the first field.
-        """
+                  removes auto-generated labels, and sets autofocus
+                  on the first field.
+    """
 
     class Meta:
         model = UserProfile
@@ -28,6 +29,7 @@ class UserProfileForm(forms.ModelForm):
             **kwargs: Arbitrary keyword arguments.
         """
         super().__init__(*args, **kwargs)
+
         placeholders = {
             'default_phone_number': 'Phone Number',
             'default_country': 'Country',
@@ -35,7 +37,7 @@ class UserProfileForm(forms.ModelForm):
             'default_town_or_city': 'Town or City',
             'default_street_address1': 'Street Address 1',
             'default_street_address2': 'Street Address 2',
-            'default_county': 'County'
+            'default_county': 'County',
         }
 
         classes = [
@@ -46,15 +48,26 @@ class UserProfileForm(forms.ModelForm):
             'transition-fast',
             'sh-sky-300',
             'ft-serif',
-            'pad-inline-1'
+            'pad-inline-1',
         ]
+
+        # Adding aria-labelledby for accessibility
+        aria_ids = {
+            'default_phone_number': 'phone-label',
+            'default_country': 'country-label',
+            'default_postcode': 'postcode-label',
+            'default_town_or_city': 'town-label',
+            'default_street_address1': 'address1-label',
+            'default_street_address2': 'address2-label',
+            'default_county': 'county-label',
+        }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = ' '.join(classes)
+            placeholder = f'{placeholders[field]}{" *" if self.fields[field].required else ""}'
+            self.fields[field].widget.attrs.update({
+                'placeholder': placeholder,
+                'class': ' '.join(classes),
+                'aria-labelledby': aria_ids[field],
+            })
             self.fields[field].label = False

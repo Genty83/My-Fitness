@@ -3,23 +3,30 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """
+    Form for placing an order. This form handles input for the customer's 
+    name, email, phone number, address, and other relevant details.
+    """
+
     class Meta:
         model = Order
         fields = (
-            'full_name', 
-            'email', 
+            'full_name',
+            'email',
             'phone_number',
             'postcode',
-            'town_or_city', 
+            'town_or_city',
             'street_address1',
             'street_address2',
-            'country', 
-            'county')
-        
+            'country',
+            'county',
+        )
+
     def __init__(self, *args, **kwargs):
         """
-        Add placeholders and classes, remove auto-generated labels
-        and set autofocus on first field
+        Initialize the order form with custom placeholders, CSS classes, 
+        and ARIA attributes for improved accessibility. Autofocus is set 
+        on the first field.
         """
         super().__init__(*args, **kwargs)
         placeholders = {
@@ -31,7 +38,7 @@ class OrderForm(forms.ModelForm):
             'town_or_city': 'Town or City',
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
-            'county': 'County, State or Locality'
+            'county': 'County, State or Locality',
         }
 
         classes = [
@@ -42,15 +49,18 @@ class OrderForm(forms.ModelForm):
             'transition-fast',
             'sh-sky-300',
             'ft-serif',
-            'pad-inline-1'
+            'pad-inline-1',
         ]
-        
+
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
             else:
                 placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = ' '.join(classes)
+            self.fields[field].widget.attrs.update({
+                'placeholder': placeholder,
+                'class': ' '.join(classes),
+                'aria-label': placeholders[field]
+            })
             self.fields[field].label = False

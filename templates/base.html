@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   {% block meta %}
   <meta charset="UTF-8">
@@ -24,28 +25,31 @@
   {% endblock %}
 
   {% block js %}
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  <script type="module" src="{% static 'js/main.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
   <script src="https://js.stripe.com/v3/"></script>
+  <script type="module" src="{% static 'js/main.js' %}"></script>
   {% endblock %}
+
 </head>
+
 <body class="bg-slate-700 ft-slate-100 ft-serif width-100">
 
   <!-- Messages -->
   {% if messages %}
   {% for message in messages %}
-    {% with message.level as level %}
-        {% if level == 40 %}
-            {% include 'includes/toasts/danger.html' %}
-        {% elif level == 30 %}
-            {% include 'includes/toasts/warning.html' %}
-        {% elif level == 25 %}
-            {% include 'includes/toasts/success.html' %}
-        {% else %}
-            {% include 'includes/toasts/info.html' %}
-        {% endif %}
-      {% endwith %}
-    {% endfor %}
+  {% with message.level as level %}
+  {% if level == 40 %}
+  {% include 'includes/toasts/danger.html' %}
+  {% elif level == 30 %}
+  {% include 'includes/toasts/warning.html' %}
+  {% elif level == 25 %}
+  {% include 'includes/toasts/success.html' %}
+  {% else %}
+  {% include 'includes/toasts/info.html' %}
+  {% endif %}
+  {% endwith %}
+  {% endfor %}
   {% endif %}
 
   <!-- Include mobile nav -->
@@ -62,108 +66,111 @@
           <div class="flex-row align-center pad-2 height-100 gap-4">
             <!-- Logo -->
             <div class="flex-row align-center gap-1">
-              <i class="fas fa-dumbbell ft-size-xl ft-sky-400"></i>
-              <a href="{% url 'home' %}" class="ft-size-xl ft-slate-100 text-no-wrap">My Fitness</a>
+              <i class="fas fa-dumbbell ft-size-xl ft-sky-400" aria-hidden="true"></i>
+              <a href="{% url 'home' %}" class="ft-size-xl ft-slate-100 text-no-wrap" aria-label="Home">My Fitness</a>
             </div>
             <!-- Logo end -->
-    
+
             <!-- Search bar -->
             <div class="content hide-breakpoint-0 show-breakpoint-xl">
-              <form action="{% url 'all_products' %}">
-                <input 
-                  class="bd-width-0 bg-slate-600 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-400 transition-medium" 
-                  type="text" name="q" id="q" placeholder="Search..." aria-label="Search"
-                >
+              <form action="{% url 'all_products' %}" role="search">
+                <input
+                  class="bd-width-0 bg-slate-600 pad-inline-2 bd-radius-2 shadow-focus-1 sh-sky-400 transition-medium"
+                  type="text" name="q" id="q" placeholder="Search..." aria-label="Search">
               </form>
             </div>
             <!-- searchbar end -->
           </div>
           <!-- Left content end -->
-    
+
           <!-- Right content -->
           <div class="content hide-breakpoint-0 show-breakpoint-lg">
             <div class="flex-row align-center justify-end gap-5">
               <!-- Nav bar -->
-              <nav>
-                <ul class="flex-row align-center gap-3">
-                  <li class="transition-medium ft-sky-hover-400">
-                    <a href="{% url 'home' %}">
+              <nav aria-label="Main Navigation">
+                <ul class="flex-row align-center gap-3" role="menubar">
+                  <li role="none" class="transition-medium ft-sky-hover-400">
+                    <a href="{% url 'home' %}" role="menuitem" aria-label="Home">
                       Home
                     </a>
                   </li>
-                  <li class="transition-medium ft-sky-hover-400 dropdown-btn">
-                    <a href="{% url 'all_products' %}">
+                  <li role="none" class="transition-medium ft-sky-hover-400 dropdown-btn">
+                    <a href="{% url 'all_products' %}" role="menuitem" aria-haspopup="true" aria-expanded="false">
                       Shop All Products
                     </a>
-                    <div class="dropdown-content bg-slate-900" role="menu">
+                    <div class="dropdown-content bg-slate-900" role="menu" aria-labelledby="menu-button">
                       <div class="grid tracks-5 track-size-250 tracks-fixed gap-2 pad-2">
                         {% for cat in menu_categories %}
-                          <div class="flex-col gp-2">
-                            <h6 class="ft-sky-400">{{ cat.friendly_name }}</h6>
-                            <ul class="flex-col gp-2">
-                              {% for subcat in menu_subcategories %}
-                                {% if cat.name == subcat.category_id.name %}
-                                  <li>
-                                    <!-- Filter by sub category -->
-                                    <a href="{% url 'all_products' %}?subcategory={{ subcat.id }}" class="ft-slate-50 ft-sky-hover-300" role="menuitem">
-                                      {{ subcat.friendly_name }}
-                                    </a>
-                                  </li>
-                                {% endif %}
-                              {% endfor %}
-                            </ul>
-                          </div>
+                        <div class="flex-col gp-2" role="presentation">
+                          <h6 class="ft-sky-400" id="heading-{{ cat.id }}" aria-hidden="true">{{ cat.friendly_name }}
+                          </h6>
+                          <ul class="flex-col gp-2" role="group" aria-labelledby="heading-{{ cat.id }}">
+                            {% for subcat in menu_subcategories %}
+                            {% if cat.name == subcat.category_id.name %}
+                            <li role="none">
+                              <a href="{% url 'all_products' %}?subcategory={{ subcat.id }}"
+                                class="ft-slate-50 ft-sky-hover-300" role="menuitem"
+                                aria-label="{{ subcat.friendly_name }}">
+                                {{ subcat.friendly_name }}
+                              </a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                          </ul>
+                        </div>
                         {% endfor %}
                       </div>
                     </div>
                   </li>
-                  <li class="transition-medium ft-sky-hover-400">
-                    <a href="{% url 'sale_products' %}">
+                  <li role="none" class="transition-medium ft-sky-hover-400">
+                    <a href="{% url 'sale_products' %}" role="menuitem" aria-label="Shop Deals">
                       Shop Deals
                     </a>
                   </li>
                   {% if user.is_superuser or subscribed_user %}
-                    <li class="transition-medium ft-sky-hover-400">
-                      <a href="{% url 'newsletter' %}">
-                        Newsletter
-                      </a>
-                    </li>
+                  <li role="none" class="transition-medium ft-sky-hover-400">
+                    <a href="{% url 'newsletter' %}" role="menuitem" aria-label="Newsletter">
+                      Newsletter
+                    </a>
+                  </li>
                   {% endif %}
                 </ul>
               </nav>
               <!-- Navbar end -->
-    
+
               <!-- Button group -->
               <div class="flex-row align-center gap-2">
                 {% if user.is_authenticated %}
-                  <a href="{% url 'profile' %}" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2" aria-label="Profile">
-                    <i class="fas fa-user ft-sky-500"></i>
-                    profile
-                  </a>
+                <a href="{% url 'profile' %}"
+                  class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2"
+                  aria-label="Profile">
+                  <i class="fas fa-user ft-sky-500" aria-hidden="true"></i>
+                  Profile
+                </a>
                 {% endif %}
                 {% if user.is_authenticated %}
-                  <a 
-                    href="{% url 'account_logout' %}" 
-                    class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2" aria-label="Logout">
-                    <i class="fas fa-user-plus ft-sky-500"></i>
-                    Logout
-                  </a>
+                <a href="{% url 'account_logout' %}"
+                  class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2"
+                  aria-label="Logout">
+                  <i class="fas fa-user-plus ft-sky-500" aria-hidden="true"></i>
+                  Logout
+                </a>
                 {% else %}
-                  <a 
-                    href="{% url 'account_login' %}" 
-                    class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2" aria-label="Login">
-                    <i class="fas fa-user-plus ft-sky-500"></i>
-                    Login
-                  </a>
+                <a href="{% url 'account_login' %}"
+                  class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2"
+                  aria-label="Login">
+                  <i class="fas fa-user-plus ft-sky-500" aria-hidden="true"></i>
+                  Login
+                </a>
                 {% endif %}
-                <a 
-                  href="{% url 'bag' %}" 
-                  class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2" aria-label="Shopping Cart">
-                  <i class="fas fa-shopping-cart ft-sky-500"></i>
+                <a href="{% url 'bag' %}"
+                  class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2"
+                  aria-label="Shopping Cart">
+                  <i class="fas fa-shopping-cart ft-sky-500" aria-hidden="true"></i>
                   {% if grand_total %}
-                    £{{ grand_total|floatformat:2 }}
+                  £{{ grand_total|floatformat:2 }}
                   {% else %}
-                    £0.00
+                  £0.00
                   {% endif %}
                 </a>
               </div>
@@ -173,27 +180,34 @@
           <!-- Right content end -->
         </div>
       </div>
+
       <hr>
       <!-- Section -->
-      <section>
+      <section aria-labelledby="section-heading">
+        <h2 id="section-heading" class="sr-only">Navigation and Cart Section</h2>
         <div class="content show-breakpoint-0 hide-breakpoint-lg">
           <div class="flex-row-wrap align-center pad-2 gap-2">
-            <button class="menu-btn btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0" aria-label="Menu">
-              <i class="menu-btn fas fa-bars"></i>
+            <button
+              class="menu-btn btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2 bd-width-0"
+              aria-label="Menu">
+              <i class="menu-btn fas fa-bars" aria-hidden="true"></i>
             </button>
             {% if user.is_authenticated %}
-              <a href="{% url 'profile' %}" class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2" aria-label="Profile">
-                <i class="fas fa-user ft-sky-500"></i>
-                profile
-              </a>
+            <a href="{% url 'profile' %}"
+              class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2"
+              aria-label="Profile">
+              <i class="fas fa-user ft-sky-500" aria-hidden="true"></i>
+              Profile
+            </a>
             {% endif %}
-            <a href="{% url 'bag' %}" 
-              class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2" aria-label="Shopping Cart">
-              <i class="fas fa-shopping-cart ft-sky-500"></i>
+            <a href="{% url 'bag' %}"
+              class="btn btn-icon bg-slate-600 transition-medium shadow-hover-1 sh-sky-400 bd-radius-2"
+              aria-label="Shopping Cart">
+              <i class="fas fa-shopping-cart ft-sky-500" aria-hidden="true"></i>
               {% if grand_total %}
-                £{{ grand_total|floatformat:2 }}
+              £{{ grand_total|floatformat:2 }}
               {% else %}
-                £0.00
+              £0.00
               {% endif %}
             </a>
             {% block menu %}
@@ -202,11 +216,13 @@
         </div>
         <hr>
       </section>
-      <div class="sale-banner height-fixed-30 bg-black ft-white flex-row justify-center align-center ft-weight-600" aria-live="polite">
+      <div class="sale-banner height-fixed-30 bg-black ft-white flex-row justify-center align-center ft-weight-600"
+        aria-live="polite">
         Free delivery on orders over £{{ free_delivery_threshold }}!
       </div>
       <hr>
     </header>
+
     <!-- Header end -->
 
     <!-- Main -->
@@ -221,3 +237,9 @@
     <!-- Footer end -->
   </div>
   <!-- Sticky footer -->
+
+  {% block postloadjs %}
+
+  {% endblock %}
+
+</body>

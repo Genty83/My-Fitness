@@ -12,6 +12,7 @@
   <div class="row gap-2">
     <div class="col-span-5 breakpoint-lg grid gap-1">
       <p>Please fill out the form below to complete your order</p>
+
       <form class="grid width-100 gap-2 bg-slate-800 bd-radius-1 pad-2" 
         action="{% url 'checkout' %}" method="post" id="payment-form">
         {% csrf_token %}
@@ -43,14 +44,7 @@
           <legend class="pad-inline-2">Payment</legend>
           <!-- Stripe card element -->
           <div id="card-element"></div>
-          <div id="card-errors"></div>
-          <div>
-
-          </div>
-          <!-- Used to display form errors -->
-          <div id="card-errors" role="alert">
-
-          </div>
+          <div id="card-errors" role="alert"><div>
           <input type="hidden" name="client_secret" value="{{ client_secret }}">
         </fieldset>
         <div class="flex-row gap-2">
@@ -72,11 +66,13 @@
           </span>
         </p>
       </form>
+
+
     </div>
     <div class="col-span-7 breakpoint-lg gap-1 pad-2 flex-col overflow-wrapper">
       <h5>Order Summary</h5>
       {% for item in bag_items %}
-        <div class="flex-row-wrap justify-between gap-2 bg-slate-600 pad-2 bd-radius-2">
+        <div class="flex-row-wrap justify-between gap-2 bg-slate-800 pad-2 bd-radius-2">
           <div class="flex-col gap-2">
             {% if item.product.image == "" %}
             <img class="bag-img" src="{{ item.product.image_url }}" alt="{{ item.product.name }}">
