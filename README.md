@@ -796,8 +796,8 @@ Page | Desktop | Mobile |
 | Shopping Bag | ![Desktop Shopping Bag Page image](/assets/readme_images/bag-desktop.png) | ![Mobile Shopping Bag Page image ]() |
 | Checkout | ![Desktop Checkout Page image](/assets/readme_images/checkout-desktop.png) | ![Mobile Checkout Page image ]() |
 | Checkout Success | ![Desktop Checkout Success Page image](/assets/readme_images/checkout-success-page.png) | ![Mobile Checkout Page image ](/assets/readme_images/checkout-success-mobile.png) |
-| Profile | ![Desktop Profile Page image](/assets/readme_images/profile-page.png) | ![Mobile Profile Page image ](/assets/readme_images/p) |
-| Reviews | ![Desktop Reviews Page image](/assets/readme_images/reviews-page.png) | ![Mobile Reviews Page image ]() |
+| Profile | ![Desktop Profile Page image](/assets/readme_images/profile-page-desktop.png) | ![Mobile Profile Page image ](/assets/readme_images/profile-page-mobile.png) |
+| Reviews | ![Desktop Reviews Page image](/assets/readme_images/reviews-desktop-page.png) | ![Mobile Reviews Page image ](/assets/readme_images/reviews-page-mobile.png) |
 
 
 
@@ -836,9 +836,7 @@ Another issue was also discovered with the webhook during checkout for unregiste
 
 ## Acknowledgements
 
-* My partner, for her unconditional love, help and continued support through the whole course. Without you I wouldn't been able to make this happen.
-
-* My friend, Miguel, for being always there to help, no matter what time of the day.
+* My wife, for her unconditional love, help and continued support through the whole course. Without you I wouldn't been able to make this happen.
 
 * My tutor, Marcel, for his invaluable support, feedback and guidance through the whole process.
 
