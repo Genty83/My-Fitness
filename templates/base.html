@@ -25,8 +25,7 @@
   {% endblock %}
 
   {% block js %}
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://js.stripe.com/v3/"></script>
   <script type="module" src="{% static 'js/main.js' %}"></script>
   {% endblock %}
@@ -98,7 +97,7 @@
                     <a href="{% url 'all_products' %}" role="menuitem" aria-haspopup="true" aria-expanded="false">
                       Shop All Products
                     </a>
-                    <div class="dropdown-content bg-slate-900" role="menu" aria-labelledby="menu-button">
+                    <div class="dropdown-content bg-slate-900">
                       <div class="grid tracks-5 track-size-250 tracks-fixed gap-2 pad-2">
                         {% for cat in menu_categories %}
                         <div class="flex-col gp-2" role="presentation">
