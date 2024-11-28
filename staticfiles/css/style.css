@@ -2761,7 +2761,8 @@ select:invalid {
 
 .error-page-wrapper {
   height: 100%;
-  width: 100%;
+  width: 80%;
+  margin: auto;
   background-image: linear-gradient(#00000088, #00000044), url('/media/404-img.jpg');
   background-position: center;
   background-size: cover;
