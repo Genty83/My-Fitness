@@ -21,7 +21,6 @@ logger = logging.getLogger(__name__)
 def cache_checkout_data(request):
     try:
         client_secret = request.POST.get('client_secret')
-        logger.debug(f'client_secret: {client_secret}')
         if client_secret:
             pid = client_secret.split('_secret')[0]
             stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -64,7 +63,6 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save(commit=False)
             client_secret = request.POST.get('client_secret')
-            logger.debug(f'POST client_secret: {client_secret}')
             if client_secret:
                 pid = client_secret.split('_secret')[0]
                 order.stripe_pid = pid
