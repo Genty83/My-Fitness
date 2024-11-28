@@ -4,6 +4,19 @@ from django.shortcuts import get_object_or_404
 from products.models import Product
 
 def bag_contents(request):
+    """
+    Calculate the contents of the shopping bag, 
+    including total cost, delivery charge,
+    and grand total, and return the context dictionary for use in templates.
+
+    Args:
+        request: The HTTP request object containing session data.
+
+    Returns:
+        A dictionary containing the bag contents, total cost, product count,
+        delivery charge, amount needed to qualify for free delivery, free delivery threshold,
+        grand total, and individual bag items with their details.
+    """
 
     bag_items = []
     total = 0
