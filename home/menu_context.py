@@ -1,7 +1,8 @@
 from products.models import Category, SubCategory
 from newsletter.models import SubscribeToNewsletter
 
-# This function will return the menu items getting the rel subcategories for each category     
+# This function will return the menu items getting 
+# the rel subcategories for each category     
 
 def menu(request):
     categories = Category.objects.all()
