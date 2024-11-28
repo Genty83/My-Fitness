@@ -793,8 +793,8 @@ Page | Desktop | Mobile |
 | Home | ![Desktop Home Page image](/assets/readme_images/homepage-desktop.png) | ![Mobile Home Page image ](/assets/readme_images/homepage-mobile.png) |
 | Products | ![Desktop Products Page image](/assets/readme_images/products-desktop.png) | ![Mobile Products Page image ](/assets/readme_images/products-mobile.png) |
 | Product Details | ![Desktop Product Details Page image](/assets/readme_images/product-detail-desktop.png) | ![Mobile Product Details Page image ](/assets/readme_images/product-detail-mobile.png) |
-| Shopping Bag | ![Desktop Shopping Bag Page image](/assets/readme_images/bag-desktop.png) | ![Mobile Shopping Bag Page image ]() |
-| Checkout | ![Desktop Checkout Page image](/assets/readme_images/checkout-desktop.png) | ![Mobile Checkout Page image ]() |
+| Shopping Bag | ![Desktop Shopping Bag Page image](/assets/readme_images/bag-desktop.png) | ![Mobile Shopping Bag Page image ](/assets/readme_images/bag-mobile.png) |
+| Checkout | ![Desktop Checkout Page image](/assets/readme_images/checkout-desktop.png) | ![Mobile Checkout Page image ](/assets/readme_images/checkout-mobile.png) |
 | Checkout Success | ![Desktop Checkout Success Page image](/assets/readme_images/checkout-success-page.png) | ![Mobile Checkout Page image ](/assets/readme_images/checkout-success-mobile.png) |
 | Profile | ![Desktop Profile Page image](/assets/readme_images/profile-page-desktop.png) | ![Mobile Profile Page image ](/assets/readme_images/profile-page-mobile.png) |
 | Reviews | ![Desktop Reviews Page image](/assets/readme_images/reviews-desktop-page.png) | ![Mobile Reviews Page image ](/assets/readme_images/reviews-page-mobile.png) |
