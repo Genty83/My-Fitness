@@ -2763,8 +2763,5 @@ select:invalid {
   height: 100%;
   width: 80%;
   margin: auto;
-  background-image: linear-gradient(#00000088, #00000044), url('/media/404-img.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  padding: 2rem;
 }
